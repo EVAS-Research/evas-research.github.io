@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-eggwhite: #F8F7F2;
-  --color-figred: #C31F39;
-  --color-coldgrey: #2C2A29;
+    --color-eggwhite: #F8F7F2;
+    --color-figred: #C31F39;
+    --color-coldgrey: #2C2A29;
 }

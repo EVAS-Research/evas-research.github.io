@@ -1,0 +1,14 @@
+---
+interface Props {
+    background?: "bg-eggwhite" | "bg-coldgrey";
+    squeezed?: boolean;
+}
+
+const { background = "bg-eggwhite", squeezed = false } = Astro.props;
+---
+
+<section class:list={[background, squeezed ? "py-4" : "py-16", "px-4"]}>
+    <div class="container mx-auto flex justify-center">
+        <slot />
+    </div>
+</section>

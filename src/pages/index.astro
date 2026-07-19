@@ -1,10 +1,32 @@
 ---
-import Layout from './src/layouts/Layout.astro';
+import { Image } from "astro:assets";
 
-import Hero from "./src/layouts/partials/index.Hero.astro"
+import Layout from "./src/layouts/Layout.astro";
 
+import Container from "./src/atoms/Container.astro";
+
+import logoImage from "./src/assets/logo-full.svg";
 ---
 
 <Layout>
-	<Hero />
+	<Container background={"bg-coldgrey"} squeezed={true}>
+		<div class="w-96 h-auto">
+			<Image
+				src={logoImage}
+				alt="EVAS: Ecological Validation of Artifical Simulacra | Research Cooperative"
+			/>
+		</div>
+		<div class="self-center text-eggwhite">
+			<h1 class="text-3xl">EVAS Research Cooperative</h1>
+			<p class="font-thin">coming soon</p>
+		</div>
+	</Container>
+
+	<Container>
+		<h2 class="text-4xl">The Shared Goal</h2>
+	</Container>
+
+	<Container>
+		<h2 class="text-4xl">Publications</h2>
+	</Container>
 </Layout>
