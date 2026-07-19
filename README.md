@@ -1,4 +1,5 @@
-# Astro Starter Kit: Basics
+# EVAS Research Cooperative
+information by Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics

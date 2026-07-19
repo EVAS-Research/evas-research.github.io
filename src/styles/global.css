@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-figred: #C31F39;
+  --color-coldgrey: #2C2A29;
+}
