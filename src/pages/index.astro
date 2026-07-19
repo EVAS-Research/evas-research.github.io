@@ -5,15 +5,18 @@ import Layout from "@layouts/Layout.astro";
 
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
+import Publication from "@atoms/Publication.astro";
 
-import logoImage from "@assets/logo-full.svg";
+import LOGO from "@assets/logo-full.svg";
+import PUBLICATIONS from "@assets/publications.json";
+
 ---
 
 <Layout>
-	<Container background={"bg-coldgrey"} squeezed={true}>
+	<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
 		<div class="w-96 h-auto">
 			<Image
-				src={logoImage}
+				src={LOGO}
 				alt="EVAS: Ecological Validation of Artifical Simulacra | Research Cooperative"
 			/>
 		</div>
@@ -29,5 +32,13 @@ import logoImage from "@assets/logo-full.svg";
 
 	<Container>
 		<Headline>Publications</Headline>
+
+		<div class="grid grid-cols-2 gap-12">
+			{PUBLICATIONS.map((article) => 
+				<Publication {...article}>
+
+				</Publication>
+			)}
+		</div>
 	</Container>
 </Layout>

@@ -1,0 +1,27 @@
+---
+interface Props {
+    authors: string;
+    year: number;
+    title: string;
+    venue: string;
+    abstract: string;
+    url: string;
+}
+
+const { authors, year, title, venue, abstract, url } = Astro.props;
+---
+
+<article>
+    <h4 class="mb-2">
+        <span>{authors}</span>&nbsp;
+        <span>({year}).</span>&nbsp;
+        <span class="font-bold">{title}.</span>&nbsp;
+        <span class="italic font-light">{venue}</span>
+    </h4>
+    <p class="text-sm">
+        {abstract}
+    </p>
+    <span class="text-sm">
+        <a class="underline text-figred" href={url}>{url}</a>
+    </span>
+</article>
