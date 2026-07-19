@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
     authors: string;
     year: number;
@@ -14,14 +16,18 @@ const { authors, year, title, venue, abstract, url } = Astro.props;
 <article>
     <h4 class="mb-2">
         <span>{authors}</span>&nbsp;
-        <span>({year}).</span>&nbsp;
+        <span class="opacity-60">({year}).</span>&nbsp;
         <span class="font-bold">{title}.</span>&nbsp;
-        <span class="italic font-light">{venue}</span>
+        <span class="text-sm italic font-light">{venue}</span>
     </h4>
-    <p class="text-sm">
+    <p class="text-sm mb-2">
         {abstract}
     </p>
-    <span class="text-sm">
-        <a class="underline text-figred" href={url}>{url}</a>
+    <span class="text-sm font-bold">
+        <a class="text-figred flex content-center" href={url} target="_blank">
+            <Icon class="inline mr-2 text-2xl" name="pixel:newspaper" /> 
+            <span class="underline self-center">{url}</span>
+        </a
+        >
     </span>
 </article>

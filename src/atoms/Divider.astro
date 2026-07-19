@@ -1,0 +1,23 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    repetitions?: number;
+    size?: number;
+    gap?: number;
+}
+
+const { repetitions = 5, size = 5, gap = 8 } = Astro.props;
+---
+
+<div class="flex justify-center contents-center" class:list={[`gap-${gap}`]}>
+    {
+        Array.from({ length: repetitions }).map((_content, _index) => (
+            <Icon
+                class="text-figred"
+                class:list={[`text-${size}xl`]}
+                name="pixel:ellipses-horizontal"
+            />
+        ))
+    }
+</div>

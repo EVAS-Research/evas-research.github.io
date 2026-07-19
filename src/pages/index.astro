@@ -1,10 +1,13 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import { Image } from "astro:assets";
 
 import Layout from "@layouts/Layout.astro";
 
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
+import Divider from "@atoms/Divider.astro";
 import Publication from "@atoms/Publication.astro";
 
 import LOGO from "@assets/logo-full.svg";
@@ -13,28 +16,54 @@ import PUBLICATIONS from "@assets/publications.json";
 
 <Layout>
 	<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
-		<div class="w-96 h-auto">
+		<div class="w-96 h-auto -m-2.5">
 			<Image
 				src={LOGO}
 				alt="EVAS: Ecological Validation of Artifical Simulacra | Research Cooperative"
 			/>
 		</div>
 		<div class="self-center text-eggwhite">
-			<h1 class="text-3xl">EVAS :: Research Cooperative</h1>
-			<p class="font-thin">coming soon</p>
+			<h1 class="text-3xl font-serif">
+				EVAS <Icon
+					class="inline"
+					name="pixel:minus-solid"
+				/> Research Cooperative
+			</h1>
+			<p class="font-thin">more soon</p>
 		</div>
 	</Container>
 
 	<Container>
-		<Headline>The Shared Goal</Headline>
-		<p class="text-lg leading-8">
-			We challenge the assumption that language models are inherently reliable human proxies for social science and linguistic research. Through systematic evaluation of downstream task limitations alongside possible applications, we examine when and how LLMs can legitimately serve as behavioral agents, research instruments, or simulation platforms. Thereby, we are committed to bridging the gap between artificial intelligence capabilities and social science validity through task- and language-dependent testing and multi-dimensional evaluation of large language models as behavioral agents and human simulacra.
+		<Headline>
+			<Icon class="inline mr-2 text-5xl text-figred" name="pixel:star" />
+			The Shared Mission
+		</Headline>
+		<p class="text-lg leading-8 max-w-4xl">
+			We <strong
+				>challenge the assumption that language models are inherently
+				reliable human proxies</strong
+			> for social science and linguistic research. Through systematic evaluation
+			of downstream task limitations alongside possible applications, we examine
+			when and how LLMs can legitimately serve as behavioral agents, research
+			instruments, or simulation platforms. Thereby, we are <strong
+				>committed to bridging the gap between artificial intelligence
+				capabilities and social science validity</strong
+			> through task- and language-dependent testing and multi-dimensional evaluation
+			of large language models as behavioral agents and human simulacra.
 		</p>
 	</Container>
-
-	<Container squeezed={true}>
-		<Headline>Publications</Headline>
-		<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12">
+	<Divider />
+	<Container>
+		<Headline>
+			<Icon
+				class="inline mr-2 text-5xl text-figred"
+				name="pixel:folder-open"
+			/>
+			Publications
+		</Headline>
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12 md:gap-20"
+		>
 			{PUBLICATIONS.map((article) => <Publication {...article} />)}
 		</div>
 	</Container>

@@ -1,7 +1,7 @@
 ---
 interface Props {
     direction?: "flex-col" | "flex-row";
-    background?: "bg-eggwhite" | "bg-coldgrey";
+    background?: "bg-eggwhite" | "bg-coldgrey" | "bg-figred";
     squeezed?: boolean;
 }
 
@@ -13,7 +13,7 @@ const {
 ---
 
 <section class:list={[background, squeezed ? "py-4" : "py-16", "px-4"]}>
-    <div class:list={[direction, "container mx-auto flex justify-center content-center"]}>
+    <div class:list={[direction, "container mx-auto flex justify-center content-center gap-4"]}>
         <slot />
     </div>
 </section>
