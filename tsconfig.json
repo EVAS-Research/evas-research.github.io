@@ -2,7 +2,12 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "paths": {
-      // todo
+      "@assets/*": ["./src/assets/*"],
+      "@atoms/*": ["./src/atoms/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"],
     }
   },
   "include": [".astro/types.d.ts", "**/*"],
