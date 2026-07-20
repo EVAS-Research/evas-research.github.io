@@ -10,12 +10,15 @@ interface Props {
 const { repetitions = 5, size = 5, gap = 4 } = Astro.props;
 ---
 
-<div class="my-2 flex justify-center contents-center" class:list={[`gap-${gap}`]}>
+<div class:list={[`gap-${gap}`, "my-2 flex justify-center contents-center"]}>
     {
-        Array.from({ length: repetitions }).map((_content, _index) => (
+        Array.from({ length: repetitions }).map((_content, index) => (
             <Icon
                 class="text-figred"
-                class:list={[`text-${size}xl`]}
+                class:list={[
+                    `text-${size}xl`,
+                    `data-[pos=${index - Math.floor(repetitions / 2)}]`,
+                ]}
                 name="pixel:ellipses-horizontal"
             />
         ))

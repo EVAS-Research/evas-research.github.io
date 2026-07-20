@@ -1,16 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import { Image } from "astro:assets";
-
 import Layout from "@layouts/Layout.astro";
+import Hero from "@layouts/partials/Hero.astro";
 
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
 import Divider from "@atoms/Divider.astro";
 import Publication from "@atoms/Publication.astro";
-
-import LOGO from "@assets/imgs/logo-full.svg";
 
 import * as HERO from "@assets/index.hero.md";
 const PUBLICATIONS = Object.values(
@@ -19,21 +16,7 @@ const PUBLICATIONS = Object.values(
 ---
 
 <Layout>
-	<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
-		<div class="w-96 h-auto -m-1">
-			<Image
-				src={LOGO}
-				alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
-			/>
-		</div>
-		<div class="self-center text-eggwhite">
-			<h1 class="text-3xl font-serif">
-				{HERO.frontmatter.title}
-			</h1>
-			<p class="font-thin">{HERO.frontmatter.subtitle}</p>
-		</div>
-	</Container>
-
+	<Hero />
 	<Container>
 		<Headline>
 			<Icon class="inline mr-2 text-5xl text-figred" name="pixel:star" />

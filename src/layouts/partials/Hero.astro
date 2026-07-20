@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+
+import Container from "@atoms/Container.astro";
+
+import LOGO from "@assets/images/logo.full.svg";
+import * as HERO from "@assets/index.hero.md";
+---
+
+<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
+    <div class="w-96 h-auto -m-1">
+        <Image
+            src={LOGO}
+            alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+        />
+    </div>
+    <div class="self-center text-eggwhite">
+        <h1 class="text-3xl font-serif">
+            {HERO.frontmatter.title}
+        </h1>
+        <p class="font-thin">{HERO.frontmatter.subtitle}</p>
+    </div>
+</Container>
