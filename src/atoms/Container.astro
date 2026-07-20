@@ -1,19 +1,14 @@
 ---
 interface Props {
     background?: "white" | "dark" | "primary";
-    direction?: "col" | "row";
     spacing?: "none" | "small" | "medium" | "large";
+    flow?: "flex-col" | "flex-row";
 }
 
 const bg_variants = {
     white: "bg-eggwhite",
     dark: "bg-coldgrey",
     primary: "bg-figred",
-};
-
-const flow_variants = {
-    col: "flex-col",
-    row: "flex-row",
 };
 
 const spacing_variants = {
@@ -24,16 +19,18 @@ const spacing_variants = {
 };
 
 const {
-    direction = "col",
     background = "white",
     spacing = "large",
+    flow = "flex-col",
 } = Astro.props;
 ---
 
-<article class:list={[bg_variants[background], spacing_variants[spacing], "px-4"]}>
+<article
+    class:list={[bg_variants[background], spacing_variants[spacing], "px-4"]}
+>
     <div
         class:list={[
-            flow_variants[direction],
+            flow,
             "relative container mx-auto flex justify-center content-center gap-4",
         ]}
     >
