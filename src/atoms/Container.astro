@@ -12,8 +12,8 @@ const {
 } = Astro.props;
 ---
 
-<article class:list={[background, squeezed ? "py-4" : "py-16", "px-4"]}>
-    <div class:list={[direction, "container mx-auto flex justify-center content-center gap-4"]}>
+<article class:list={[background, squeezed ? "py-8" : "py-16", "px-4"]}>
+    <div class:list={[direction, "relative container mx-auto flex justify-center content-center gap-4"]}>
         <slot />
     </div>
 </article>

@@ -3,21 +3,33 @@ import { Image } from "astro:assets";
 
 import Container from "@atoms/Container.astro";
 
-import LOGO from "@assets/images/logo.full.svg";
+import PHOTO_SQUARE from "@assets/images/hero.square.webp";
+import PHOTO_LONG from "@assets/images/hero.long.webp";
+import LOGO_LEAF from "@assets/images/logo.partial.leaf.svg";
+
 import * as HERO from "@assets/index.hero.md";
 ---
 
-<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
-    <div class="w-96 h-auto -m-1">
+<Container direction="flex-col" background={"bg-coldgrey"} squeezed>
+    <div class="w-full h-auto z-20">
         <Image
-            src={LOGO}
+            class="sm:hidden px-16 pt-4 pb-2"
+            src={PHOTO_SQUARE}
+            alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+        />
+        <Image
+            class="hidden sm:block pt-4"
+            src={PHOTO_LONG}
             alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
         />
     </div>
-    <div class="self-center text-eggwhite">
-        <h1 class="text-3xl font-serif">
-            {HERO.frontmatter.title}
-        </h1>
-        <p class="font-thin">{HERO.frontmatter.subtitle}</p>
+    <Image
+            class="absolute z-10 right-0 bottom-0"
+            src={LOGO_LEAF}
+            alt="leaf-decotator-image"
+        />
+    <div>
+        <h1 class="text-3xl font-serif text-eggwhite mt-4 mb-0">{HERO.frontmatter.title}</h1>
+        <span class="text-eggwhite font-thin tracking-wide">{HERO.frontmatter.subtitle}</span>
     </div>
 </Container>

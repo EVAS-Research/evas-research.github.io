@@ -1,6 +1,6 @@
 ---
 title: "EVAS ::. Research Cooperative"
-subtitle: "more soon"
+subtitle: "Ecological Validation of Artifical Simulacra"
 headline: "The Shared Mission"
 ---
 
