@@ -6,11 +6,10 @@ interface Props {
     year: number;
     title: string;
     venue: string;
-    abstract: string;
     url: string;
 }
 
-const { authors, year, title, venue, abstract, url } = Astro.props;
+const { authors, year, title, venue, url } = Astro.props;
 ---
 
 <article>
@@ -20,14 +19,14 @@ const { authors, year, title, venue, abstract, url } = Astro.props;
         <span class="font-bold">{title}.</span>&nbsp;
         <span class="text-sm italic font-light">{venue}</span>
     </h4>
-    <p class="text-sm mb-2">
-        {abstract}
-    </p>
-    <span class="text-sm font-bold">
+    <section class="text-sm mb-2">
+        <slot />
+    </section>
+    <footer class="text-sm font-bold">
         <a class="text-figred flex content-center" href={url} target="_blank">
             <Icon class="inline mr-2 text-2xl" name="pixel:newspaper" /> 
             <span class="underline self-center">{url}</span>
         </a
         >
-    </span>
+        </footer>
 </article>

@@ -10,49 +10,40 @@ import Headline from "@atoms/Headline.astro";
 import Divider from "@atoms/Divider.astro";
 import Publication from "@atoms/Publication.astro";
 
-import LOGO from "@assets/logo-full.svg";
-import PUBLICATIONS from "@assets/publications.json";
+import LOGO from "@assets/imgs/logo-full.svg";
+
+import * as HERO from "@assets/index.hero.md";
+const PUBLICATIONS = Object.values(
+	import.meta.glob("@assets/publications/*.md", { eager: true }),
+);
 ---
 
 <Layout>
 	<Container direction="flex-row" background={"bg-coldgrey"} squeezed={true}>
-		<div class="w-96 h-auto -m-2.5">
+		<div class="w-96 h-auto -m-1">
 			<Image
 				src={LOGO}
-				alt="EVAS: Ecological Validation of Artifical Simulacra | Research Cooperative"
+				alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
 			/>
 		</div>
 		<div class="self-center text-eggwhite">
 			<h1 class="text-3xl font-serif">
-				EVAS <Icon
-					class="inline"
-					name="pixel:minus-solid"
-				/> Research Cooperative
+				{HERO.frontmatter.title}
 			</h1>
-			<p class="font-thin">more soon</p>
+			<p class="font-thin">{HERO.frontmatter.subtitle}</p>
 		</div>
 	</Container>
 
 	<Container>
 		<Headline>
 			<Icon class="inline mr-2 text-5xl text-figred" name="pixel:star" />
-			The Shared Mission
+			{HERO.frontmatter.headline}
 		</Headline>
-		<p class="text-lg leading-8 max-w-4xl">
-			We <strong
-				>challenge the assumption that language models are inherently
-				reliable human proxies</strong
-			> for social science and linguistic research. Through systematic evaluation
-			of downstream task limitations alongside possible applications, we examine
-			when and how LLMs can legitimately serve as behavioral agents, research
-			instruments, or simulation platforms. Thereby, we are <strong
-				>committed to bridging the gap between artificial intelligence
-				capabilities and social science validity</strong
-			> through task- and language-dependent testing and multi-dimensional evaluation
-			of large language models as behavioral agents and human simulacra.
-		</p>
+		<section class="text-lg leading-8 max-w-4xl">
+			<Fragment set:html={HERO.compiledContent()} />
+		</section>
 	</Container>
-	<Divider />
+	<Divider/>
 	<Container>
 		<Headline>
 			<Icon
@@ -64,7 +55,13 @@ import PUBLICATIONS from "@assets/publications.json";
 		<div
 			class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12 md:gap-20"
 		>
-			{PUBLICATIONS.map((article) => <Publication {...article} />)}
+			{
+				PUBLICATIONS.map((article: any) => (
+					<Publication {...article.frontmatter}>
+						<Fragment set:html={article.compiledContent()} />
+					</Publication>
+				))
+			}
 		</div>
 	</Container>
 </Layout>

@@ -7,10 +7,10 @@ interface Props {
     gap?: number;
 }
 
-const { repetitions = 5, size = 5, gap = 8 } = Astro.props;
+const { repetitions = 5, size = 5, gap = 4 } = Astro.props;
 ---
 
-<div class="flex justify-center contents-center" class:list={[`gap-${gap}`]}>
+<div class="my-2 flex justify-center contents-center" class:list={[`gap-${gap}`]}>
     {
         Array.from({ length: repetitions }).map((_content, _index) => (
             <Icon

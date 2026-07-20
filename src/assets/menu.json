@@ -1,0 +1,12 @@
+{
+    "footer": [
+        {
+            "icon": "pixel:envelope",
+            "url": "mailto:evas-research@protonmail.com"
+        },
+        {
+            "icon": "pixel:github",
+            "url": "https://github.com/EVAS-Research"
+        }
+    ]
+}

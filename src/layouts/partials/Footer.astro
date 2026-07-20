@@ -3,7 +3,7 @@ import Container from "@atoms/Container.astro";
 
 import { Icon } from "astro-icon/components";
 
-import SOCIALS from "@assets/socials.json";
+import MENU from "@assets/menu.json";
 
 interface Props {
     size?: number;
@@ -17,7 +17,7 @@ const { size = 3, gap = 12 } = Astro.props;
     <Container squeezed={true} background={"bg-figred"}>
         <div class="flex justify-center" class:list={[`gap-${gap}`]}>
             {
-                SOCIALS.map((social) => (
+                MENU.footer.map((social) => (
                     <a href={social.url} target="_blank">
                         <Icon name={social.icon} />
                     </a>
