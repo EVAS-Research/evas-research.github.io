@@ -4,21 +4,14 @@ import Container from "@atoms/Container.astro";
 import { Icon } from "astro-icon/components";
 
 import MENU from "@assets/menu.json";
-
-interface Props {
-    size?: number;
-    gap?: number;
-}
-
-const { size = 4, gap = 12 } = Astro.props;
 ---
 
-<footer class="text-white" class:list={[`text-${size}xl`]}>
-    <Container squeezed={true} background={"bg-figred"}>
-        <div class="flex justify-center" class:list={[`gap-${gap}`]}>
+<footer>
+    <Container spacing={"small"} background={"primary"}>
+        <div class="flex justify-center gap-12">
             {
                 MENU.footer.map((social) => (
-                    <a href={social.url} target="_blank">
+                    <a class="text-white text-2xl" href={social.url} target="_blank">
                         <Icon name={social.icon} />
                     </a>
                 ))

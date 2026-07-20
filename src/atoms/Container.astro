@@ -1,19 +1,42 @@
 ---
 interface Props {
-    direction?: "flex-col" | "flex-row";
-    background?: "bg-eggwhite" | "bg-coldgrey" | "bg-figred";
-    squeezed?: boolean;
+    background?: "white" | "dark" | "primary";
+    direction?: "col" | "row";
+    spacing?: "none" | "small" | "medium" | "large";
 }
 
+const bg_variants = {
+    white: "bg-eggwhite",
+    dark: "bg-coldgrey",
+    primary: "bg-figred",
+};
+
+const flow_variants = {
+    col: "flex-col",
+    row: "flex-row",
+};
+
+const spacing_variants = {
+    none: "py-0",
+    small: "py-4",
+    medium: "py-8",
+    large: "py-16",
+};
+
 const {
-    direction = "flex-col",
-    background = "bg-eggwhite",
-    squeezed = false,
+    direction = "col",
+    background = "white",
+    spacing = "large",
 } = Astro.props;
 ---
 
-<article class:list={[background, squeezed ? "py-8" : "py-16", "px-4"]}>
-    <div class:list={[direction, "relative container mx-auto flex justify-center content-center gap-4"]}>
+<article class:list={[bg_variants[background], spacing_variants[spacing]]}>
+    <div
+        class:list={[
+            flow_variants[direction],
+            "relative container mx-auto flex justify-center content-center gap-4",
+        ]}
+    >
         <slot />
     </div>
 </article>

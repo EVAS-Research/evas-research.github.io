@@ -3,20 +3,38 @@ import { Icon } from "astro-icon/components";
 
 interface Props {
     repetitions?: number;
-    size?: number;
-    gap?: number;
+    size?: "small" | "medium" | "large";
+    gap?: "none" | "small" | "medium" | "large";
 }
 
-const { repetitions = 5, size = 6, gap = 16 } = Astro.props;
+const size_variants = {
+    small: "text-xl",
+    medium: "text-3xl",
+    large: "text-6xl",
+};
+
+const gap_variants = {
+    none: "gap-0",
+    small: "gap-4",
+    medium: "gap-8",
+    large: "gap-16",
+};
+
+const { repetitions = 5, size = "large", gap = "large" } = Astro.props;
 ---
 
-<div class:list={[`gap-${gap}`, "my-4 flex justify-center contents-center"]}>
+<div
+    class:list={[
+        gap_variants[size],
+        "my-4 flex justify-center contents-center",
+    ]}
+>
     {
         Array.from({ length: repetitions }).map((_content, index) => (
             <Icon
-                class="text-figred"
                 class:list={[
-                    `text-${6}xl`,
+                    "text-figred",
+                    size_variants[size],
                     `data-[pos=${index - Math.floor(repetitions / 2)}]`,
                 ]}
                 name="tdesign:ellipsis"
