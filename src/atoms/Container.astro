@@ -1,5 +1,6 @@
 ---
 interface Props {
+    id?: null | string;
     background?: "white" | "dark" | "primary";
     spacing?: "none" | "small" | "medium" | "large";
     flow?: "flex-col" | "flex-row";
@@ -19,16 +20,16 @@ const spacing_variants = {
 };
 
 const {
+    id = null,
     background = "white",
     spacing = "large",
     flow = "flex-col",
 } = Astro.props;
 ---
 
-<article
-    class:list={[bg_variants[background], spacing_variants[spacing], "px-4"]}
->
+<article class:list={[bg_variants[background], spacing_variants[spacing], "px-4 overflow-hidden"]}>
     <div
+        id={id} 
         class:list={[
             flow,
             "relative container mx-auto flex justify-center content-center gap-4",

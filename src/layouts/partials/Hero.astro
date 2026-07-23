@@ -10,10 +10,13 @@ import LOGO_LEAF from "@assets/images/logo.partial.leaf.svg";
 import * as HERO from "@assets/index.hero.md";
 ---
 
-<Container background={"dark"} spacing={"medium"}>
-    <div class="w-full h-auto z-20">
+<Container id="scene" background={"dark"}>
+    <div data-depth="0.2" class="z-10 -left-100!">
+        <Image class="w-96" src={LOGO_LEAF} alt="leaf-decotator-image" />
+    </div>
+    <div class="z-20" data-depth="0.4">
         <Image
-            class="sm:hidden px-4 pt-2 pb-0"
+            class="sm:hidden px-4 pt-2 pb-0 shadow-lg"
             src={PHOTO_SQUARE}
             alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
         />
@@ -23,17 +26,31 @@ import * as HERO from "@assets/index.hero.md";
             alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
         />
     </div>
-    <Image
-        class="absolute z-10 right-0 bottom-0"
-        src={LOGO_LEAF}
-        alt="leaf-decotator-image"
-    />
-    <div class="z-20">
-        <h1 class="text-3xl font-serif text-eggwhite mt-4 mb-0">
-            {HERO.frontmatter.title}
-        </h1>
-        <span class="text-eggwhite font-thin tracking-wide"
-            >{HERO.frontmatter.subtitle}</span
-        >
+    <div class="z-30 top-96!" data-depth="0.6">
+        <div class="flex flex-col justify-end text-shadow-lg">
+            <h1 class="text-3xl font-serif text-eggwhite mt-4 mb-0 bottom-10">
+                {HERO.frontmatter.title}
+            </h1>
+            <span class="text-eggwhite font-thin tracking-wide"
+                >{HERO.frontmatter.subtitle}</span
+            >
+        </div>
     </div>
 </Container>
+
+<script>
+    import Parallax from "parallax-js";
+
+    var scene = document.getElementById("scene");
+
+    if (scene != null) {
+        let parallaxInstance = new Parallax(scene, {
+            relativeInput: true,
+            clipRelativeInput: true,
+            hoverOnly: true,
+            frictionX: 0.15,
+            frictionY: 0.15,
+        });
+        console.log(parallaxInstance);
+    }
+</script>

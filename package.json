@@ -14,10 +14,12 @@
   "dependencies": {
     "astro": "^7.1.1",
     "astro-icon": "^1.1.5",
+    "parallax-js": "^3.1.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@iconify-json/tdesign": "^1.2.17",
-    "@tailwindcss/vite": "^4.3.3"
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/parallax-js": "^3.1.3"
   }
 }
