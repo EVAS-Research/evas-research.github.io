@@ -1,36 +1,38 @@
 ---
 import { Image } from "astro:assets";
 
-import Container from "@atoms/Container.astro";
-
 import PHOTO_SQUARE from "@assets/images/hero.square.webp";
 import PHOTO_LONG from "@assets/images/hero.long.webp";
+import PHOTO_BACKGROUND from "@assets/images/hero.background.webp";
 import LOGO_LEAF from "@assets/images/logo.partial.leaf.svg";
 
 import * as HERO from "@assets/index.hero.md";
 ---
 
-<Container background={"dark"}>
-    <div class="parallax flex h-[65vh] md:h-[60vh]">
-        <div class="z-10 -left-100 -translate-z-64">
-            <Image class="w-96" src={LOGO_LEAF} alt="leaf-decotator-image" />
-        </div>
-        <div class="z-20 translate-z-32">
+<div
+    class="bg-cover bg-top py-16 px-8"
+    style={`background-image: url(${PHOTO_BACKGROUND.src});`}
+>
+    <div class="relative container mx-auto parallax flex">
+        <div class="z-20 -translate-z-16">
             <Image
-                class="sm:hidden px-4 pt-2 pb-0 shadow-lg"
+                class="sm:hidden px-4 pt-2 pb-0 shadow-2xl"
                 src={PHOTO_SQUARE}
                 alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
             />
             <Image
-                class="hidden sm:block pt-4"
+                class="hidden sm:block pt-4 shadow-2xl"
                 src={PHOTO_LONG}
                 alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
             />
         </div>
-        <div class="z-30 translate-z-64 top-96">
+         <div class="z-10 -left-96 translate-z-16">
+            <Image class="w-96" src={LOGO_LEAF} alt="leaf-decotator-image" />
+        </div>
+        <div class="z-30 translate-z-64 top-48 md:top-96">
             <div class="flex flex-col justify-end text-shadow-lg">
                 <h1
-                    class="text-3xl font-serif text-eggwhite mt-4 mb-0 bottom-10"
+                    class="text-3xl font-serif text-eggwhite mb-0.5"
                 >
                     {HERO.frontmatter.title}
                 </h1>
@@ -40,7 +42,7 @@ import * as HERO from "@assets/index.hero.md";
             </div>
         </div>
     </div>
-</Container>
+</div>
 
 <script>
     const parallax = function ({ smooth = 1 / 32 }) {
@@ -56,6 +58,14 @@ import * as HERO from "@assets/index.hero.md";
     };
 
     parallax({});
+
+    const parallax_elements = document.querySelectorAll("div.parallax");
+    parallax_elements.forEach((parallax_el) => {
+        parallax_el.setAttribute("style", `height:${
+            (parallax_el.children[1] as HTMLElement).offsetHeight * 1.1
+        }px`);
+    });
+
 </script>
 <style>
     :root {
@@ -72,6 +82,6 @@ import * as HERO from "@assets/index.hero.md";
     }
 
     .parallax > * {
-        @apply absolute flex items-center justify-center;
+        @apply absolute flex items-center justify-center select-none;
     }
 </style>
