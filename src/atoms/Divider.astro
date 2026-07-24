@@ -25,6 +25,8 @@ const { repetitions = 5, size = "large", gap = "large" } = Astro.props;
 
 <div
     class:list={[
+        "divider-ref",
+        "cursor-pointer hover:animate-pulse",
         gap_variants[size],
         "my-4 flex justify-center contents-center",
     ]}
@@ -42,3 +44,16 @@ const { repetitions = 5, size = "large", gap = "large" } = Astro.props;
         ))
     }
 </div>
+
+<script>
+    const dividers = document.querySelectorAll("div.divider-ref");
+
+    dividers.forEach((divider) => {
+        divider.addEventListener("click", (event) => {
+            (event.target as Element).scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+    });
+</script>
