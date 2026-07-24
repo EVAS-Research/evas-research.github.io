@@ -2,6 +2,7 @@
 interface Props {
     background?: "white" | "dark" | "primary";
     spacing?: "none" | "small" | "medium" | "large";
+    gap?: "none" | "small" | "medium" | "large";
     flow?: "flex-col" | "flex-row";
 }
 
@@ -18,9 +19,17 @@ const spacing_variants = {
     large: "py-16",
 };
 
+const gap_variants = {
+    none: "gap-0",
+    small: "gap-2",
+    medium: "gap-4",
+    large: "gap-8",
+};
+
 const {
     background = "white",
     spacing = "large",
+    gap = "large",
     flow = "flex-col",
 } = Astro.props;
 ---
@@ -30,8 +39,8 @@ const {
 >
     <div
         class:list={[
-            flow,
-            "relative container mx-auto flex justify-center content-center gap-4",
+            [gap_variants[gap], flow],
+            "relative container mx-auto flex justify-center content-center",
         ]}
     >
         <slot />

@@ -1,21 +1,54 @@
 ---
-import Container from "@atoms/Container.astro";
+import { Image } from "astro:assets";
 
 import { Icon } from "astro-icon/components";
 
+import Container from "@atoms/Container.astro";
+
 import MENU from "@assets/menu.json";
+import LOGO from "@assets/images/logo.mono.white.svg";
 ---
 
 <footer>
-    <Container spacing={"small"} background={"primary"}>
-        <div class="flex justify-center gap-12">
+    <Container background={"primary"} spacing={"medium"} gap={"medium"}>
+        <div class="flex justify-center mb-8">
+            <Image
+                class="h-86"
+                src={LOGO}
+                alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+            />
+        </div>
+        <div class="flex justify-center gap-6">
             {
                 MENU.footer.map((social) => (
-                    <a class="text-white text-2xl" href={social.url} target="_blank">
+                    <a
+                        class="text-white text-2xl"
+                        href={social.url}
+                        target="_blank"
+                    >
                         <Icon name={social.icon} />
                     </a>
                 ))
             }
+        </div>
+        <div
+            class="flex gap-1.5 justify-center text-xs tracking-wide font-light italic text-white"
+        >
+            <span>source code:</span>
+            <a
+                class="underline"
+                href="https://github.com/EVAS-Research/evas-research.github.io"
+                target="_blank"
+                >https://github.com/EVAS-Research/evas-research.github.io</a
+            >
+            <span
+                >build with <a
+                    class="underline"
+                    href="https://astro.build/"
+                    target="_blank"
+                    referrerpolicy="no-referrer">Astro.js</a
+                ></span
+            >
         </div>
     </Container>
 </footer>
