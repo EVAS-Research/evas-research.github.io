@@ -24,7 +24,8 @@ const humansCollection = defineCollection({
     z.object({
       name: z.string(),
       picture: image(),
-      url: z.url(),
+      website: z.url(),
+      research: z.url(),
     }),
 });
 

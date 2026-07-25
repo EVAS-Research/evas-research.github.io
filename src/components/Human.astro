@@ -7,12 +7,22 @@ import { Image } from "astro:assets";
 interface Props {
     name: string;
     picture: ImageMetadata;
-    url: string;
+    website: string;
+    research: string;
     content: any;
 }
 
-const { name, picture, url, content } = Astro.props;
+const { name, picture, website, research, content } = Astro.props;
 const { Content } = await render(content);
+
+const SOCIALS = [
+    { icon: "tdesign:assignment-user", name: "visit the human", url: website },
+    {
+        icon: "tdesign:folder-search",
+        name: "follow the research",
+        url: research,
+    },
+];
 ---
 
 <article
@@ -23,20 +33,22 @@ const { Content } = await render(content);
     </div>
     <div class="shrink">
         <h3 class="font-bold text-3xl mb-1.5">{name}</h3>
-        <div class="text-sm mb-2">
+        <div class="text-sm mb-4">
             <Content />
         </div>
-        <span>
-            <a
-                class="text-figred flex content-center"
-                href={url}
-                target="_blank"
-            >
-                <Icon class="inline mr-2 text-2xl" name="tdesign:link" />
-                <span class="underline self-center">
-                    {url}
-                </span>
-            </a>
-        </span>
+        <div class="flex gap-4">
+            {
+                SOCIALS.map((social) => (
+                    <a
+                        class="text-figred flex content-center"
+                        href={social.url}
+                        target="_blank"
+                    >
+                        <Icon class="inline mr-2 text-2xl" name={social.icon} />
+                        <span class="underline self-center">{social.name}</span>
+                    </a>
+                ))
+            }
+        </div>
     </div>
 </article>
