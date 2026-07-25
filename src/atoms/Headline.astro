@@ -1,9 +1,14 @@
 ---
+import { Icon } from "astro-icon/components";
 
+interface Props {
+    icon?: string | null;
+}
+
+const { icon = null } = Astro.props;
 ---
 
-<h2
-    class:list={["font-serif font-bold text-4xl text-coldgrey", "mb-2 md:mb-4"]}
->
+<h2 class:list={["font-serif font-bold text-4xl text-coldgrey"]}>
+    {icon && <Icon class="inline mr-2 text-5xl text-figred" name={icon} />}
     <slot />
 </h2>

@@ -1,14 +1,14 @@
 ---
 import { Image } from "astro:assets";
 
+import CFG from "@assets/site.config.json";
+
 import PHOTO_SQUARE from "@assets/images/hero.square.webp";
 import PHOTO_LONG from "@assets/images/hero.long.webp";
 import PHOTO_BACKGROUND from "@assets/images/hero.background.webp";
 
 import LOGO_LEAF from "@assets/images/logo.partial.leaf.svg";
 import LOGO_MONO from "@assets/images/logo.mono.white.svg";
-
-import * as HERO from "@assets/index.hero.md";
 ---
 
 <div
@@ -27,21 +27,21 @@ import * as HERO from "@assets/index.hero.md";
             <Image
                 class="block sm:hidden px-4 pt-2 pb-0 shadow-2xl"
                 src={PHOTO_SQUARE}
-                alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+                alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
             />
             <Image
                 class="hidden sm:block pt-4 shadow-2xl"
                 src={PHOTO_LONG}
-                alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+                alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
             />
         </div>
         <div class="z-30 translate-z-64 bottom-0">
             <div class="flex flex-col justify-end text-shadow-lg">
                 <h1 class="text-3xl font-serif text-eggwhite mb-0.5">
-                    {HERO.frontmatter.title}
+                    {CFG.meta.title}
                 </h1>
                 <span class="text-eggwhite font-thin tracking-wide"
-                    >{HERO.frontmatter.subtitle}</span
+                    >{CFG.meta.subtitle}</span
                 >
             </div>
         </div>

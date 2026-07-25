@@ -15,11 +15,13 @@ const { name, picture, url, content } = Astro.props;
 const { Content } = await render(content);
 ---
 
-<article class="flex flex-col items-center justify-center gap-4">
-    <div class="w-64 h-64 bg-figred rounded-full">
+<article
+    class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-4"
+>
+    <div class="shrink-0 w-64 h-64 bg-figred rounded-full">
         <Image class="w-full h-auto" src={picture} alt={name} />
     </div>
-    <div>
+    <div class="shrink">
         <h3 class="font-bold text-xl">{name}</h3>
         <p class="mb-2">
             <Content />

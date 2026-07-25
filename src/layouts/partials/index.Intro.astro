@@ -3,16 +3,30 @@ import { Icon } from "astro-icon/components";
 
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
+import Leading from "@atoms/Leading.astro";
 
-import * as HERO from "@assets/index.hero.md";
+import { intro } from "@assets/page.index.json";
 ---
 
-<Container>
-    <Headline>
-        <Icon class="inline mr-2 text-5xl text-figred" name="tdesign:flag" />
-        {HERO.frontmatter.headline}
-    </Headline>
-    <section class="text-lg leading-8 max-w-4xl">
-        <Fragment set:html={HERO.compiledContent()} />
-    </section>
-</Container>
+<article>
+    <Container>
+        <Headline icon={"tdesign:flag"} set:html={intro.headline} />
+        <Leading set:html={intro.leading} />
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+            {
+                intro.aims.map((aim) => (
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-2">
+                            <Icon
+                                class="inline mr-3 text-5xl text-figred"
+                                name={aim.icon}
+                            />
+                            <span>{aim.title}</span>
+                        </h3>
+                        <p class="leading-6" set:html={aim.description} />
+                    </div>
+                ))
+            }
+        </section>
+    </Container>
+</article>

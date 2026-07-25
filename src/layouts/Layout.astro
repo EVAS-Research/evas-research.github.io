@@ -2,22 +2,24 @@
 import "@/styles.global.css";
 
 import Footer from "@layouts/partials/Footer.astro";
+
+import CFG from "@assets/site.config.json";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
 
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<title>EVAS ::. Research Cooperative</title>
-		<meta name="description" content="" />
-	</head>
-	<body class="scroll-smooth overflow-x-hidden">
-		<slot />
-		<Footer />
-	</body>
+        <title>{`${CFG.meta.title}`}</title>
+        <meta name="description" content={`${CFG.meta.subtitle}`} />
+    </head>
+    <body class="scroll-smooth overflow-x-hidden">
+        <slot />
+        <Footer />
+    </body>
 </html>

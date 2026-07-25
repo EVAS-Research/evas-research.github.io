@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 
 import Container from "@atoms/Container.astro";
 
-import MENU from "@assets/menu.json";
+import CFG from "@assets/site.config.json";
 import LOGO from "@assets/images/logo.mono.white.svg";
 ---
 
@@ -15,18 +15,18 @@ import LOGO from "@assets/images/logo.mono.white.svg";
             <Image
                 class="h-86"
                 src={LOGO}
-                alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
+                alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
             />
         </div>
         <div class="flex justify-center gap-6">
             {
-                MENU.footer.map((social) => (
+                CFG.footer.icon_menu.map((item) => (
                     <a
                         class="text-white text-2xl"
-                        href={social.url}
+                        href={item.url}
                         target="_blank"
                     >
-                        <Icon name={social.icon} />
+                        <Icon name={item.icon} />
                     </a>
                 ))
             }
@@ -35,11 +35,8 @@ import LOGO from "@assets/images/logo.mono.white.svg";
             class="flex gap-1.5 justify-center text-xs tracking-wide font-light italic text-white"
         >
             <span>source code:</span>
-            <a
-                class="underline"
-                href="https://github.com/EVAS-Research/evas-research.github.io"
-                target="_blank"
-                >https://github.com/EVAS-Research/evas-research.github.io</a
+            <a class="underline" href={CFG.footer.source_url} target="_blank"
+                >{CFG.footer.source_url}</a
             >
             <span
                 >build with <a

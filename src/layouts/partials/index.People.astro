@@ -1,27 +1,22 @@
 ---
 import { getCollection } from "astro:content";
 
-import { Icon } from "astro-icon/components";
-
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
+import Leading from "@atoms/Leading.astro";
 
 import Person from "@components/Person.astro";
 
-const PEOPLE = await getCollection("people");
+import { people } from "@assets/page.index.json";
+const COLLECTION = await getCollection("people");
 ---
 
 <Container>
-    <Headline>
-        <Icon
-            class="inline mr-2 text-5xl text-figred"
-            name="tdesign:usergroup"
-        />
-        People
-    </Headline>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+    <Headline icon={"tdesign:usergroup"} set:html={people.headline} />
+    <Leading set:html={people.leading} />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
         {
-            PEOPLE.map(async (person) => (
+            COLLECTION.map((person) => (
                 <Person {...person.data} content={person} />
             ))
         }

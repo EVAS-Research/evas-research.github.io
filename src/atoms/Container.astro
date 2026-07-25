@@ -23,7 +23,7 @@ const gap_variants = {
     none: "gap-0",
     small: "gap-2",
     medium: "gap-4",
-    large: "gap-8",
+    large: "gap-12",
 };
 
 const {
@@ -34,9 +34,7 @@ const {
 } = Astro.props;
 ---
 
-<article
-    class:list={[bg_variants[background], spacing_variants[spacing], "px-4"]}
->
+<div class:list={[bg_variants[background], spacing_variants[spacing], "px-4"]}>
     <div
         class:list={[
             [gap_variants[gap], flow],
@@ -45,4 +43,4 @@ const {
     >
         <slot />
     </div>
-</article>
+</div>
