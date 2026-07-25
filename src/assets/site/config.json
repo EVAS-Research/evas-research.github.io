@@ -25,11 +25,11 @@
   "footer": {
     "icon_menu": [
       {
-        "icon": "tdesign:mail-filled",
+        "icon": "tdesign:mail",
         "url": "mailto:evas-research@protonmail.com"
       },
       {
-        "icon": "tdesign:logo-github-filled",
+        "icon": "tdesign:logo-github",
         "url": "https://github.com/EVAS-Research"
       }
     ],

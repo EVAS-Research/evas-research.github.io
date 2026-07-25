@@ -9,33 +9,88 @@ import CFG from "@assets/site/config.json";
 import LOGO from "@assets/site/images/logo.black.svg";
 ---
 
-<div class="h-24 w-full bg-eggwhite"></div>
+<div class="h-28 w-full bg-eggwhite"></div>
 <nav class="z-60 fixed w-full h-16 top-0 left-0">
     <Container flow={"flex-row"} spacing={"small"} background={"primary"}>
         <div>
             <a href="#">
                 <Image
-                    class="md:ml-16 lg:ml-32 h-20 sm:h-32 w-20 sm:w-32 absolute top-0 left-0 bg-eggwhite"
+                    class="z-50 ml-8 md:ml-16 lg:ml-32 h-32 w-32 absolute top-0 left-0 bg-eggwhite"
                     src={LOGO}
                     alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
                 />
             </a>
         </div>
         <div class="grow"></div>
-        <ul class="md:mr-16 lg:mr-32 flex flex-row gap-4 sm:gap-8">
-            {
-                CFG.navbar.main_menu.map((item) => (
-                    <li class="text-eggwhite text-sm sm:text-base tracking-wide hover:underline">
-                        <a href={item.url}>
-                            <Icon
-                                class="hidden sm:inline text-base sm:text-lg mr-2"
-                                name={item.icon}
-                            />
-                            {item.name}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
+        <div class="mr-8 mr:ml-16 lg:mr-32">
+            <button
+                class="menu_toggle cursor-pointer transition-transform duration-300"
+            >
+                <Icon
+                    class="text-eggwhite text-4xl"
+                    name="tdesign:menu-application"
+                />
+            </button>
+        </div>
     </Container>
 </nav>
+<menu
+    class="bg-figred py-16 px-8"
+    class:list={[
+        "z-40 fixed right-0 top-1/2 -translate-y-1/2",
+        "transition-all opacity-0 translate-x-full duration-700",
+    ]}
+>
+    <ul
+        class:list={[
+            "flex flex-col gap-12",
+            "text-eggwhite text-3xl font-thin tracking-wide",
+        ]}
+    >
+        {
+            CFG.navbar.main_menu.map((item) => (
+                <li>
+                    <a href={item.url} class="menu_item p-4">
+                        <Icon class="inline text-2xl mr-4" name={item.icon} />
+                        {item.name}
+                    </a>
+                </li>
+            ))
+        }
+        <li class="border-b-2 border-b-eggwhite -my-4 mx-8"></li>
+        <li>
+            <span>Workshops</span><br />
+            <span class="italic text-base ml-6">coming soon</span>
+        </li>
+    </ul>
+</menu>
+
+<script>
+    const menu = document.querySelector("menu");
+    const toggle_btn = document.querySelector(".menu_toggle");
+    const menu_items = document.querySelectorAll(".menu_item");
+
+    const toggle = () => {
+        if (menu && toggle_btn) {
+            toggle_btn.classList.toggle("rotate-45");
+            toggle_btn.classList.toggle("scale-80");
+
+            menu.classList.toggle("translate-x-full");
+            menu.classList.toggle("opacity-0");
+        }
+    };
+
+    if (toggle_btn) {
+        toggle_btn.addEventListener("click", () => {
+            toggle();
+        });
+    }
+
+    if (menu_items) {
+        menu_items.forEach((item) => {
+            item.addEventListener("click", () => {
+                toggle();
+            });
+        });
+    }
+</script>
