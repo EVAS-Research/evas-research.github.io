@@ -1,73 +1,20 @@
 ---
-import { getCollection } from "astro:content";
-
-import { Icon } from "astro-icon/components";
-
 import Layout from "@layouts/Layout.astro";
-import Hero from "@layouts/partials/Hero.astro";
 
-import Container from "@atoms/Container.astro";
-import Headline from "@atoms/Headline.astro";
+import Intro from "@layouts/partials/index.Intro.astro";
+import Hero from "@layouts/partials/index.Hero.astro";
+import People from "@layouts/partials/index.People.astro";
+import Publications from "@layouts/partials/index.Publications.astro";
+
 import Divider from "@atoms/Divider.astro";
-
-import Publication from "@components/Publication.astro";
-import Person from "@components/Person.astro";
-
-import * as HERO from "@assets/index.hero.md";
-
-const PUBLICATIONS = await getCollection("publications");
-const PEOPLE = await getCollection("people");
 ---
 
 <Layout>
 	<Hero />
 	<Divider />
-	<Container>
-		<Headline>
-			<Icon
-				class="inline mr-2 text-5xl text-figred"
-				name="tdesign:flag"
-			/>
-			{HERO.frontmatter.headline}
-		</Headline>
-		<section class="text-lg leading-8 max-w-4xl">
-			<Fragment set:html={HERO.compiledContent()} />
-		</section>
-	</Container>
+	<Intro />
 	<Divider />
-	<Container>
-		<Headline>
-			<Icon
-				class="inline mr-2 text-5xl text-figred"
-				name="tdesign:folder-search"
-			/>
-			Publications
-		</Headline>
-		<div
-			class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12 md:gap-20"
-		>
-			{
-				PUBLICATIONS.map((article: any) => (
-					<Publication {...article.data} content={article} />
-				))
-			}
-		</div>
-	</Container>
+	<Publications />
 	<Divider />
-	<Container>
-		<Headline>
-			<Icon
-				class="inline mr-2 text-5xl text-figred"
-				name="tdesign:usergroup"
-			/>
-			People
-		</Headline>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-			{
-				PEOPLE.map(async (person: any) => (
-					<Person {...person.data} content={person} />
-				))
-			}
-		</div>
-	</Container>
+	<People />
 </Layout>

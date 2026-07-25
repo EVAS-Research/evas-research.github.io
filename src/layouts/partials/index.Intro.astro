@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Container from "@atoms/Container.astro";
+import Headline from "@atoms/Headline.astro";
+
+import * as HERO from "@assets/index.hero.md";
+---
+
+<Container>
+    <Headline>
+        <Icon class="inline mr-2 text-5xl text-figred" name="tdesign:flag" />
+        {HERO.frontmatter.headline}
+    </Headline>
+    <section class="text-lg leading-8 max-w-4xl">
+        <Fragment set:html={HERO.compiledContent()} />
+    </section>
+</Container>

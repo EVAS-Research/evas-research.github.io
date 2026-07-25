@@ -4,6 +4,9 @@
     "strictNullChecks": true,
     "allowJs": true,
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "@assets/*": [
         "./src/assets/*"
       ],
@@ -18,9 +21,6 @@
       ],
       "@pages/*": [
         "./src/pages/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
       ],
     }
   },

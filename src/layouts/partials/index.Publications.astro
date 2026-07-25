@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+
+import { Icon } from "astro-icon/components";
+
+import Container from "@atoms/Container.astro";
+import Headline from "@atoms/Headline.astro";
+
+import Publication from "@components/Publication.astro";
+
+const PUBLICATIONS = await getCollection("publications");
+---
+
+<Container>
+    <Headline>
+        <Icon
+            class="inline mr-2 text-5xl text-figred"
+            name="tdesign:folder-search"
+        />
+        Publications
+    </Headline>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12 md:gap-20"
+    >
+        {
+            PUBLICATIONS.map((article) => (
+                <Publication {...article.data} content={article} />
+            ))
+        }
+    </div>
+</Container>
