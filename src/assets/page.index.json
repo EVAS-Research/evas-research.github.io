@@ -22,10 +22,10 @@
   },
   "publications": {
     "headline": "Publications",
-    "leading": "todo"
+    "leading": "Our publications trace the empirical thread running through EVAS's work: testing whether LLM-based agents actually behave like the humans they are asked to simulate, and reporting when they don't. Recent work spans <strong>political and cultural bias in agent-centric simulations</strong>, <strong>construct validity in psychological questionnaires in LLMs</strong>, and <strong>the operational realism of generative agents on social networks</strong>. Up to this point, we find consistently that surface-level performance does not guarantee behavioral or ecological validity to human respondents."
   },
   "people": {
     "headline": "People",
-    "leading": "todo"
+    "leading": "EVAS is carried by researchers working across (computational) linguistics, natural language processing, and computational social science. <strong>United by the skepticism of unvalidated claims about LLM-as-human-proxy research,</strong> we build empirical infrastructure, datasets, evaluation pipelines, and simulation frameworks, needed to <strong>test  claims and the performance of silicon sampling</strong> rather than assume it."
   }
 }
