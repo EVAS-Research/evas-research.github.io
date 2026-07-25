@@ -8,7 +8,7 @@
 │   └── ...
 ├── src
 │   ├── assets
-│   │   └── publications [~xx.md]
+│   │   └── research [~xx.md]
 │   │   └── index.hero.md
 │   │   └── ...
 │   ├── components

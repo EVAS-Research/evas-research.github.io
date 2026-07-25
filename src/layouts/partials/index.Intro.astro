@@ -10,12 +10,12 @@ import { intro } from "@assets/page.index.json";
 
 <article>
     <Container>
-        <Headline icon={"tdesign:flag"} set:html={intro.headline} />
+        <Headline icon={intro.icon} set:html={intro.headline} />
         <Leading set:html={intro.leading} />
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {
                 intro.aims.map((aim) => (
-                    <div>
+                    <div class="border-l-4 lg:border-t-4 border-r-4 border-figred pl-10 pt-8 pr-8">
                         <h3 class="text-3xl font-semibold mb-2">
                             <Icon
                                 class="inline mr-3 text-5xl text-figred"

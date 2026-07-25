@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+import { Icon } from "astro-icon/components";
+
+import Container from "@atoms/Container.astro";
+
+import CFG from "@assets/site.config.json";
+import LOGO from "@assets/images/logo.black.svg";
+---
+
+<div class="h-24 w-full bg-eggwhite"></div>
+<nav class="z-60 fixed w-full h-16 top-0 left-0">
+    <Container flow={"flex-row"} spacing={"small"} background={"primary"}>
+        <div>
+            <a href="#">
+                <Image
+                    class="md:ml-16 lg:ml-32 h-20 sm:h-32 w-20 sm:w-32 absolute top-0 left-0 bg-eggwhite"
+                    src={LOGO}
+                    alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
+                />
+            </a>
+        </div>
+        <div class="grow"></div>
+        <ul class="md:mr-16 lg:mr-32 flex flex-row gap-4 sm:gap-8">
+            {
+                CFG.navbar.main_menu.map((item) => (
+                    <li class="text-eggwhite text-sm sm:text-base tracking-wide hover:underline">
+                        <a href={item.url}>
+                            <Icon
+                                class="text-base sm:text-lg inline mr-2"
+                                name={item.icon}
+                            />
+                            {item.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </Container>
+</nav>

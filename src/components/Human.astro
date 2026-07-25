@@ -18,11 +18,11 @@ const { Content } = await render(content);
 <article
     class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-4"
 >
-    <div class="shrink-0 w-64 h-64 bg-figred rounded-full">
+    <div class="shrink-0 w-64 h-64 bg-figred rounded-full mb-2">
         <Image class="w-full h-auto" src={picture} alt={name} />
     </div>
     <div class="shrink">
-        <h3 class="font-bold text-2xl mb-1">{name}</h3>
+        <h3 class="font-bold text-3xl mb-1.5">{name}</h3>
         <div class="text-sm mb-2">
             <Content />
         </div>

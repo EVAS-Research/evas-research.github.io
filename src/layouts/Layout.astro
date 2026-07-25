@@ -1,13 +1,14 @@
 ---
 import "@/styles.global.css";
 
+import Navbar from "@layouts/partials/Navbar.astro";
 import Footer from "@layouts/partials/Footer.astro";
 
 import CFG from "@assets/site.config.json";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -18,7 +19,8 @@ import CFG from "@assets/site.config.json";
         <title>{`${CFG.meta.title}`}</title>
         <meta name="description" content={`${CFG.meta.subtitle}`} />
     </head>
-    <body class="scroll-smooth overflow-x-hidden">
+    <body>
+        <Navbar />
         <slot />
         <Footer />
     </body>

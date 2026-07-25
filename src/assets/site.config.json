@@ -3,6 +3,25 @@
     "title": "EVAS ::. Research Cooperative",
     "subtitle": "Ecological Validation of Artifical Simulacra"
   },
+  "navbar": {
+    "main_menu": [
+      {
+        "icon": "tdesign:flag",
+        "name": "Mission",
+        "url": "#anchor_intro"
+      },
+      {
+        "icon": "tdesign:folder-search",
+        "name": "Research",
+        "url": "#anchor_research"
+      },
+      {
+        "icon": "tdesign:usergroup",
+        "name": "Humans",
+        "url": "#anchor_humans"
+      }
+    ]
+  },
   "footer": {
     "icon_menu": [
       {

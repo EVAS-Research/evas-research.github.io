@@ -5,19 +5,19 @@ import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
 import Leading from "@atoms/Leading.astro";
 
-import Person from "@components/Person.astro";
+import Human from "@components/Human.astro";
 
-import { people } from "@assets/page.index.json";
-const COLLECTION = await getCollection("people");
+import { humans } from "@assets/page.index.json";
+const COLLECTION = await getCollection("humans");
 ---
 
 <Container>
-    <Headline icon={"tdesign:usergroup"} set:html={people.headline} />
-    <Leading set:html={people.leading} />
+    <Headline icon={humans.icon} set:html={humans.headline} />
+    <Leading set:html={humans.leading} />
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
         {
             COLLECTION.map((person) => (
-                <Person {...person.data} content={person} />
+                <Human {...person.data} content={person} />
             ))
         }
     </div>

@@ -3,18 +3,21 @@ import Layout from "@layouts/Layout.astro";
 
 import Intro from "@layouts/partials/index.Intro.astro";
 import Hero from "@layouts/partials/index.Hero.astro";
-import People from "@layouts/partials/index.People.astro";
-import Publications from "@layouts/partials/index.Publications.astro";
+import Humans from "@layouts/partials/index.Humans.astro";
+import Research from "@layouts/partials/index.Research.astro";
 
 import Divider from "@atoms/Divider.astro";
 ---
 
 <Layout>
     <Hero />
+    <div id="anchor_intro"></div>
     <Divider />
     <Intro />
+    <div id="anchor_research"></div>
     <Divider />
-    <Publications />
+    <Research />
+    <div id="anchor_humans"></div>
     <Divider />
-    <People />
+    <Humans />
 </Layout>
