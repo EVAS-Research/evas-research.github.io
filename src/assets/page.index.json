@@ -1,0 +1,31 @@
+{
+  "intro": {
+    "headline": "Shared Mission",
+    "leading": "We <strong>challenge the assumption that language models are inherently reliable human proxies</strong> for social science and linguistic research. Through systematic evaluation of downstream task limitations alongside possible applications, we examine when and how LLMs can legitimately serve as behavioral agents, research instruments, or simulation platforms. Thereby, we are <strong>committed to bridging the gap between artificial intelligence capabilities and social science validity</strong> through task- and language-dependent testing and multi-dimensional evaluation of large language models as behavioral agents and human simulacra.",
+    "aims": [
+      {
+        "icon": "tdesign:map-information-1",
+        "title": "Formalizing",
+        "description": "EVAS develops <strong>task-specific datasets and formal specifications of stimulus and context conditions</strong> to enable standardized, comparable testing of LLMs as behavioral agents and human simulacra."
+      },
+      {
+        "icon": "tdesign:chart-combo-filled",
+        "title": "Evaluating",
+        "description": "EVAS builds <strong>evaluation pipelines and metrics that probe LLM behavior mechanistically</strong> rather than relying on surface-level accuracy, using open-weight models to ensure reproducibility and interpretability."
+      },
+      {
+        "icon": "tdesign:chat-bubble-error",
+        "title": "Critiquing",
+        "description": "EVAS critically <strong>analyzes unfalsifiable claims about silicon sampling and advocates for empirical validation</strong> in AI-based social science research through formalized pipelines and deep evaluation."
+      }
+    ]
+  },
+  "publications": {
+    "headline": "Publications",
+    "leading": "todo"
+  },
+  "people": {
+    "headline": "People",
+    "leading": "todo"
+  }
+}

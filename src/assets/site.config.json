@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "EVAS ::. Research Cooperative",
+    "subtitle": "Ecological Validation of Artifical Simulacra"
+  },
+  "footer": {
+    "icon_menu": [
+      {
+        "icon": "tdesign:mail-filled",
+        "url": "mailto:evas-research@protonmail.com"
+      },
+      {
+        "icon": "tdesign:logo-github-filled",
+        "url": "https://github.com/EVAS-Research"
+      }
+    ],
+    "source_url": "https://github.com/EVAS-Research/evas-research.github.io"
+  }
+}
