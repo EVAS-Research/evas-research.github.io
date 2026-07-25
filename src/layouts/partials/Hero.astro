@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+
+import CFG from "@assets/site.config.json";
+
+import PHOTO_SQUARE from "@assets/images/hero.square.webp";
+import PHOTO_LONG from "@assets/images/hero.long.webp";
+import PHOTO_BACKGROUND from "@assets/images/hero.background.webp";
+
+import LOGO_LEAF from "@assets/images/logo.partial.leaf.svg";
+import LOGO_MONO from "@assets/images/logo.mono.white.svg";
+---
+
+<div
+    class="bg-cover bg-top py-16 px-8 overflow-hidden"
+    style={`background-image: url(${PHOTO_BACKGROUND.src});`}
+>
+    <div class="relative container flex mx-auto parallax">
+        <div class="z-10 -left-96 translate-z-16">
+            <Image
+                class="w-96 sm:w-32 md:w-48 lg:w-96"
+                src={LOGO_LEAF}
+                alt={""}
+            />
+        </div>
+        <div class="z-20 -translate-z-16">
+            <Image
+                class="block sm:hidden px-4 pt-2 pb-0 shadow-2xl"
+                src={PHOTO_SQUARE}
+                alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
+            />
+            <Image
+                class="hidden sm:block pt-4 shadow-2xl"
+                src={PHOTO_LONG}
+                alt={`${CFG.meta.title} | ${CFG.meta.subtitle}`}
+            />
+        </div>
+        <div class="z-30 translate-z-64 bottom-0">
+            <div class="flex flex-col justify-end text-shadow-lg">
+                <h1 class="text-3xl font-serif text-eggwhite mb-0.5">
+                    {CFG.meta.title}
+                </h1>
+                <span class="text-eggwhite font-thin tracking-wide"
+                    >{CFG.meta.subtitle}</span
+                >
+            </div>
+        </div>
+        <div class="z-40 -top-64 -right-64 mb-8 translate-z-64">
+            <Image class="h-96" src={LOGO_MONO} alt={""} />
+        </div>
+    </div>
+</div>
+
+<script>
+    const parallax = ({ smooth = 1 / 32 }: { smooth?: number }) => {
+        const root = document.documentElement;
+
+        document.addEventListener("mousemove", (event) => {
+            const rotateX = (event.clientY - window.innerHeight / 2) * smooth;
+            const rotateY = (event.clientX - window.innerWidth / 2) * -smooth;
+
+            root.style.setProperty("--rotate-x", `${rotateX}deg`);
+            root.style.setProperty("--rotate-y", `${rotateY}deg`);
+        });
+    };
+
+    const setHeightByChildren = (parallax_el: HTMLElement) => {
+        let maxHeight = 0;
+
+        Array.from(parallax_el.children).forEach((el) => {
+            let currHeight = (el as HTMLElement).offsetHeight;
+            if (currHeight > maxHeight) {
+                maxHeight = currHeight;
+            }
+        });
+
+        parallax_el.setAttribute("style", `height:${maxHeight * 1.0}px`);
+    };
+
+    const setHeights = () => {
+        const parallax_elements = document.querySelectorAll("div.parallax");
+
+        parallax_elements.forEach((parallax_el) => {
+            setHeightByChildren(parallax_el as HTMLElement);
+        });
+    };
+
+    parallax({});
+    setHeights();
+    window.addEventListener("resize", (_) => {
+        setHeights();
+    });
+</script>
+<style>
+    :root {
+        --rotate-y: 0;
+        --rotate-x: 0;
+    }
+
+    .parallax {
+        @apply flex transform-3d;
+
+        transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+        transition: transform 0.8s cubic-bezier(0.1, 0.6, 0.2, 1);
+        will-change: transform;
+    }
+
+    .parallax > * {
+        @apply absolute flex items-center justify-center select-none;
+    }
+</style>
