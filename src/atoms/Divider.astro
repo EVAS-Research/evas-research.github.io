@@ -15,18 +15,17 @@ const size_variants = {
 
 const gap_variants = {
     none: "gap-0",
-    small: "gap-1",
-    medium: "gap-3",
-    large: "gap-6",
+    small: "gap-4",
+    medium: "gap-8",
+    large: "gap-16",
 };
 
-const { repetitions = 5, size = "large", gap = "large" } = Astro.props;
+const { repetitions = 3, size = "large", gap = "large" } = Astro.props;
 ---
 
 <div
     class:list={[
-        "divider-ref",
-        "cursor-pointer hover:animate-pulse",
+        "divider cursor-pointer transition-opacity hover:opacity-40 duration-500",
         gap_variants[gap],
         "my-4 flex justify-center contents-center",
     ]}
@@ -36,17 +35,18 @@ const { repetitions = 5, size = "large", gap = "large" } = Astro.props;
             <Icon
                 class:list={[
                     "text-figred",
+                    "motion-safe:animate-bounce pt-1 -mb-3",
                     size_variants[size],
                     `data-[pos=${index - Math.floor(repetitions / 2)}]`,
                 ]}
-                name="tdesign:ellipsis"
+                name="tdesign:arrow-down"
             />
         ))
     }
 </div>
 
 <script>
-    const dividers = document.querySelectorAll("div.divider-ref");
+    const dividers = document.querySelectorAll("div.divider");
 
     dividers.forEach((divider) => {
         divider.addEventListener("click", (event) => {
