@@ -1,15 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import { render } from "astro:content";
 import { Image } from "astro:assets";
 
 interface Props {
     name: string;
     picture: ImageMetadata;
     url: string;
+    content: any;
 }
 
-const { name, picture, url } = Astro.props;
+const { name, picture, url, content } = Astro.props;
+const { Content } = await render(content);
 ---
 
 <article class="flex flex-col items-center justify-center gap-4">
@@ -19,7 +22,7 @@ const { name, picture, url } = Astro.props;
     <div>
         <h3 class="font-bold text-xl">{name}</h3>
         <p class="mb-2">
-            <slot />
+            <Content />
         </p>
         <span>
             <a

@@ -1,15 +1,19 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import { render } from "astro:content";
+
 interface Props {
     authors: string;
     year: number;
     title: string;
     venue: string;
     url: string;
+    content: any;
 }
 
-const { authors, year, title, venue, url } = Astro.props;
+const { authors, year, title, venue, url, content } = Astro.props;
+const { Content } = await render(content);
 ---
 
 <article>
@@ -20,7 +24,7 @@ const { authors, year, title, venue, url } = Astro.props;
         <span class="text-sm italic font-light">{venue}</span>
     </h4>
     <section class="text-sm mb-2">
-        <slot />
+        <Content />
     </section>
     <footer class="text-sm font-bold">
         <a class="text-figred flex content-center" href={url} target="_blank">
