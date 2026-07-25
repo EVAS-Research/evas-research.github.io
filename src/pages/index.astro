@@ -7,9 +7,12 @@ import Hero from "@layouts/partials/Hero.astro";
 import Container from "@atoms/Container.astro";
 import Headline from "@atoms/Headline.astro";
 import Divider from "@atoms/Divider.astro";
+
 import Publication from "@atoms/Publication.astro";
+import Person from "@atoms/Person.astro";
 
 import * as HERO from "@assets/index.hero.md";
+import LOGO_WHITE from "@assets/images/logo.mono.white.svg";
 const PUBLICATIONS = Object.values(
 	import.meta.glob("@assets/publications/*.md", { eager: true }),
 );
@@ -17,17 +20,20 @@ const PUBLICATIONS = Object.values(
 
 <Layout>
 	<Hero />
-	<Divider/>
+	<Divider />
 	<Container>
 		<Headline>
-			<Icon class="inline mr-2 text-5xl text-figred" name="tdesign:star-1" />
+			<Icon
+				class="inline mr-2 text-5xl text-figred"
+				name="tdesign:flag"
+			/>
 			{HERO.frontmatter.headline}
 		</Headline>
 		<section class="text-lg leading-8 max-w-4xl">
 			<Fragment set:html={HERO.compiledContent()} />
 		</section>
 	</Container>
-	<Divider/>
+	<Divider />
 	<Container>
 		<Headline>
 			<Icon
@@ -45,6 +51,37 @@ const PUBLICATIONS = Object.values(
 						<Fragment set:html={article.compiledContent()} />
 					</Publication>
 				))
+			}
+		</div>
+	</Container>
+	<Divider />
+	<Container>
+		<Headline>
+			<Icon
+				class="inline mr-2 text-5xl text-figred"
+				name="tdesign:usergroup"
+			/>
+			People
+		</Headline>
+		<div
+			class="grid grid-cols-1 md:grid-cols-3 gap-16"
+		>
+			{
+				Array(3)
+					.fill(0)
+					.map((_: any) => (
+						<Person
+							name={"Full Name"}
+							picture={LOGO_WHITE}
+							url="https://example.com"
+						>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis
+							nostrud exercitation ullamco laboris nisi ut aliquip
+							ex ea commodo consequat.
+						</Person>
+					))
 			}
 		</div>
 	</Container>

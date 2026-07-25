@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { Image } from "astro:assets";
+
+interface Props {
+    name: string;
+    picture: ImageMetadata;
+    url: string;
+}
+
+const { name, picture, url } = Astro.props;
+---
+
+<article class="flex flex-col items-center justify-center gap-4">
+    <div class="w-64 h-64 bg-figred rounded-full">
+        <Image class="w-full h-auto" src={picture} alt={name} />
+    </div>
+    <div>
+        <h3 class="font-bold text-xl">{name}</h3>
+        <p class="mb-2">
+            <slot />
+        </p>
+        <span>
+            <a
+                class="text-figred flex content-center"
+                href={url}
+                target="_blank"
+            >
+                <Icon class="inline mr-2 text-2xl" name="tdesign:link" />
+                <span class="underline self-center">
+                    {url}
+                </span>
+            </a>
+        </span>
+    </div>
+</article>
