@@ -12,8 +12,22 @@
 │   │   │   ├── research/           # [authors].[year].[slug].md
 │   │   │   └── humans/             # [firstname]_[lastname].md
 │   │   │       └── pictures/       # portraits referenced by humans/*.md
-│   │   ├── images/                 # logos, hero images
-│   │   ├── page.index.json         # landing page content (intro, research, humans)
+│   │   ├── pages
+│   │   │   └── index.json          # landing page content (intro, research, humans)
+│   │   └── site/                   # configuration, images, styles
+│   ├── atoms/                      # small reusable UI building blocks
+│   │   └── Blocks: Card, Container, Divider
+│   │   └── Typography: Headline, Leading
+│   ├── components/
+│   ├── layouts/
+│   ├── pages/
+│   ├── content.config.ts           # schemas for the data collections
+│   └── styles.global.css
+└── package.json
+```
+
+## Commands
+index.json         # landing page content (intro, research, humans)
 │   │   └── site.config.json        # site meta, navbar, footer config
 │   ├── atoms/                      # small reusable UI building blocks
 │   │   └── Blocks: Card, Container, Divider
