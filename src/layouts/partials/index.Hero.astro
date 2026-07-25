@@ -12,12 +12,16 @@ import * as HERO from "@assets/index.hero.md";
 ---
 
 <div
-    class="bg-cover bg-top py-16 px-8"
+    class="bg-cover bg-top py-16 px-8 overflow-x-hidden"
     style={`background-image: url(${PHOTO_BACKGROUND.src});`}
 >
-    <div class="relative container mx-auto parallax flex">
+    <div class="relative container flex mx-auto parallax">
         <div class="z-10 -left-96 translate-z-16">
-            <Image class="w-96" src={LOGO_LEAF} alt={""} />
+            <Image
+                class="w-96 sm:w-32 md:w-48 lg:w-96"
+                src={LOGO_LEAF}
+                alt={""}
+            />
         </div>
         <div class="z-20 -translate-z-16">
             <Image
@@ -31,7 +35,7 @@ import * as HERO from "@assets/index.hero.md";
                 alt="EVAS: Ecological Validation of Artifical Simulacra ::. Research Cooperative"
             />
         </div>
-        <div class="z-30 translate-z-64 top-48 md:top-96">
+        <div class="z-30 translate-z-64 bottom-0">
             <div class="flex flex-col justify-end text-shadow-lg">
                 <h1 class="text-3xl font-serif text-eggwhite mb-0.5">
                     {HERO.frontmatter.title}
@@ -41,14 +45,14 @@ import * as HERO from "@assets/index.hero.md";
                 >
             </div>
         </div>
-        <div class="z-40 -top-64 -right-48 mb-8 translate-z-64">
+        <div class="z-40 -top-64 -right-64 mb-8 translate-z-64">
             <Image class="h-96" src={LOGO_MONO} alt={""} />
         </div>
     </div>
 </div>
 
 <script>
-    const parallax = function ({ smooth = 1 / 32 }) {
+    const parallax = ({ smooth = 1 / 32 }: { smooth?: number }) => {
         const root = document.documentElement;
 
         document.addEventListener("mousemove", (event) => {
@@ -60,16 +64,31 @@ import * as HERO from "@assets/index.hero.md";
         });
     };
 
-    parallax({});
+    const setHeightByChildren = (parallax_el: HTMLElement) => {
+        let maxHeight = 0;
 
-    const parallax_elements = document.querySelectorAll("div.parallax");
-    parallax_elements.forEach((parallax_el) => {
-        parallax_el.setAttribute(
-            "style",
-            `height:${
-                (parallax_el.children[1] as HTMLElement).offsetHeight * 1.1
-            }px`,
-        );
+        Array.from(parallax_el.children).forEach((el) => {
+            let currHeight = (el as HTMLElement).offsetHeight;
+            if (currHeight > maxHeight) {
+                maxHeight = currHeight;
+            }
+        });
+
+        parallax_el.setAttribute("style", `height:${maxHeight * 1.0}px`);
+    };
+
+    const setHeights = () => {
+        const parallax_elements = document.querySelectorAll("div.parallax");
+
+        parallax_elements.forEach((parallax_el) => {
+            setHeightByChildren(parallax_el as HTMLElement);
+        });
+    };
+
+    parallax({});
+    setHeights();
+    window.addEventListener("resize", (_) => {
+        setHeights();
     });
 </script>
 <style>
