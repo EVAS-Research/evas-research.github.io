@@ -39,7 +39,13 @@
 <div class="flex gap-2 flex-col">
     <div class="flex gap-2 md:gap-4 items-center max-w-3xl">
         <label for="search">
-            <Icon icon="tdesign:search" class="text-figred text-3xl" />
+            <Icon
+                icon="tdesign:search"
+                class="text-figred text-3xl cursor-pointer {searchPhrase.length >
+                0
+                    ? 'animate-pulse'
+                    : ''}"
+            />
         </label>
         <input
             id="search"
@@ -74,8 +80,14 @@
         {#if index !== filteredItems.length - 1}
             <div class="flex justify-center items-center">
                 <div class="block">
-                    <Icon icon="tdesign:chevron-down" class="hidden lg:block lg:text-figred text-5xl animate-pulse" />
-                    <Icon icon="tdesign:chevron-right" class="lg:hidden text-figred text-5xl animate-pulse" />
+                    <Icon
+                        icon="tdesign:chevron-down"
+                        class="hidden lg:block lg:text-figred text-5xl animate-pulse"
+                    />
+                    <Icon
+                        icon="tdesign:chevron-right"
+                        class="lg:hidden text-figred text-5xl animate-pulse"
+                    />
                 </div>
             </div>
         {/if}
