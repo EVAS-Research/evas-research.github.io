@@ -1,7 +1,7 @@
 ---
 authors: "Simon Münker, Achim Rettinger, Damian Trilling"
 year: 2026
-title: "Challenging the Myth: A Research Arc on {LLM}s as Human Simulacra"
+title: "Challenging the Myth: A Research Arc on LLMs as Human Simulacra"
 venue: "Proceedings of The Big Picture v2: Crafting a Research Narrative"
 url: "https://aclanthology.org/2025.emnlp-main.13/"
 ---
