@@ -32,17 +32,17 @@ const SOCIALS = [
 ---
 
 <article
-    class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-4"
+    class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-10 bg-white p-8 xl:pt-14 border-b-4 border-figred"
 >
-    <div class="shrink-0 w-64 h-64 bg-figred rounded-full mb-2">
+    <div class="shrink-0 w-64 h-64">
         <Image class="w-full h-auto" src={data.picture} alt={data.name} />
     </div>
     <div class="shrink">
         <h3 class="font-bold text-3xl mb-1.5">{data.name}</h3>
-        <div class="text-sm mb-4">
+        <div class="text-sm mb-4 text-pretty">
             <Content />
         </div>
-        <div class="flex gap-4">
+        <div class="flex gap-2">
             {
                 SOCIALS.map((social) => (
                     <a

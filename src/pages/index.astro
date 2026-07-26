@@ -32,7 +32,7 @@ const RESEARCH_COLLECTION = await getCollection("research");
                 {
                     intro.aims.map((aim) => (
                         <Card icon={aim.icon} title={aim.title}>
-                            <p class="leading-6" set:html={aim.description} />
+                            <p class="leading-6 text-pretty" set:html={aim.description} />
                         </Card>
                     ))
                 }

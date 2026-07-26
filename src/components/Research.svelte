@@ -36,8 +36,8 @@
     }
 </script>
 
-<div class="flex gap-2 flex-col">
-    <div class="flex gap-2 md:gap-4 items-center max-w-3xl">
+<div class="flex gap-2 flex-col bg-white p-4 md:p-8 max-w-3xl">
+    <div class="flex gap-2 md:gap-4 items-center">
         <label for="search">
             <Icon
                 icon="tdesign:search"
@@ -70,7 +70,7 @@
     </div>
 </div>
 <div
-    class="overflow-scroll scrollbar-none w-auto flex flex-row gap-8 px-4 py-8 lg:px-8 lg:flex-col lg:h-100vh border-t-4 border-b-4 lg:border-t-0 lg:border-b-0 lg:border-l-4 lg:border-r-4 lg:max-h-[60vh] border-figred lg:mx-16 border-dashed"
+    class="overflow-scroll scrollbar-none w-auto flex flex-row gap-4 lg:gap-8 px-4 py-8 lg:px-8 lg:flex-col lg:h-100vh border-t-4 border-b-4 lg:border-t-0 lg:border-b-0 lg:border-l-4 lg:border-r-4 lg:max-h-[60vh] border-figred lg:mx-16 border-dashed bg-white"
 >
     {#each filteredItems as item, index}
         <div class="shrink-0 w-10/12 lg:w-full">
