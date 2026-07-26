@@ -1,35 +1,29 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import { render } from "astro:content";
+import ResearchItem from "@/components/ResearchItem.astro";
 
 interface Props {
-    authors: string;
-    year: number;
-    title: string;
-    venue: string;
-    url: string;
-    content: any;
+    items: Array<any>;
 }
 
-const { authors, year, title, venue, url, content } = Astro.props;
-const { Content } = await render(content);
+const { items } = Astro.props;
 ---
 
-<article>
-    <h3 class="mb-2">
-        <span>{authors}</span>&nbsp;
-        <span class="opacity-60">({year}).</span>&nbsp;
-        <span class="font-bold">{title}.</span>&nbsp;
-        <span class="text-sm italic font-light">{venue}</span>
-    </h3>
-    <section class="text-sm mb-2">
-        <Content />
-    </section>
-    <footer class="text-sm font-bold">
-        <a class="text-figred flex content-center" href={url} target="_blank">
-            <Icon class="inline mr-2 text-2xl" name="tdesign:link" />
-            <span class="underline self-center">{url}</span>
-        </a>
-    </footer>
-</article>
+<div class="flex gap-4 items-center max-w-3xl">
+    <label for="search">
+        <Icon name="tdesign:search" class="text-figred text-3xl" />
+    </label>
+    <input
+        id="search"
+        type="text"
+        class="border-3 border-figred py-2 px-4 w-full focus:outline-none"
+        placeholder="search for authors or keywords"
+    />
+    <button>
+        <Icon name="tdesign:filter-clear" class="text-figred text-3xl" />
+    </button>
+</div>
+<div class="grid grid-cols-1 gap-8">
+    {items.map((item) => <ResearchItem {...item.data} content={item} />)}
+</div>
