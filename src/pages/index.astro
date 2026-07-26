@@ -11,7 +11,7 @@ import Card from "@atoms/Card.astro";
 import Headline from "@atoms/Headline.astro";
 import Leading from "@atoms/Leading.astro";
 
-import Research from "@components/Research.astro";
+import Research from "@components/Research.svelte";
 import Humans from "@components/Humans.astro";
 
 import { intro, research, humans } from "@assets/pages/index.json";
@@ -44,13 +44,13 @@ const RESEARCH_COLLECTION = await getCollection("research");
     <Container>
         <Headline icon={research.icon} set:html={research.headline} />
         <Leading set:html={research.leading} />
-        <Research items={RESEARCH_COLLECTION} />
+        <Research items={RESEARCH_COLLECTION as Array<any>} client:load />
     </Container>
     <div id="anchor_humans"></div>
     <Divider />
     <Container>
         <Headline icon={humans.icon} set:html={humans.headline} />
         <Leading set:html={humans.leading} />
-        <Humans items={HUMANS_COLLECTION} />
+        <Humans items={HUMANS_COLLECTION as Array<any>} />
     </Container>
 </Layout>

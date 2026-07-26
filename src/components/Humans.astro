@@ -1,13 +1,15 @@
 ---
-import HumansItem from "@/components/HumansItem.astro";
+import HumansItem, {
+    type Props as HumanItemProps,
+} from "@/components/HumansItem.astro";
 
 interface Props {
-    items: Array<any>;
+    items: Array<HumanItemProps>;
 }
 
 const { items } = Astro.props;
 ---
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-    {items.map((item) => <HumansItem {...item.data} content={item} />)}
+    {items.map((item) => <HumansItem data={item.data} body={item} />)}
 </div>

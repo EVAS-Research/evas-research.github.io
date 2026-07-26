@@ -89,9 +89,7 @@ import LOGO_MONO from "@assets/site/images/logo.mono.white.svg";
 
     parallax({});
     setHeights();
-    window.addEventListener("resize", (_) => {
-        setHeights();
-    });
+    window.addEventListener("resize", (_) => setHeights);
 </script>
 <style>
     :root {

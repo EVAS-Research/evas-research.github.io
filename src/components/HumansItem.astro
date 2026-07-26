@@ -4,23 +4,29 @@ import { Icon } from "astro-icon/components";
 import { render } from "astro:content";
 import { Image } from "astro:assets";
 
-interface Props {
-    name: string;
-    picture: ImageMetadata;
-    website: string;
-    research: string;
-    content: any;
+export interface Props {
+    data: {
+        name: string;
+        picture: ImageMetadata;
+        website: string;
+        research: string;
+    };
+    body: any;
 }
 
-const { name, picture, website, research, content } = Astro.props;
-const { Content } = await render(content);
+const { data, body } = Astro.props;
+const { Content } = await render(body);
 
 const SOCIALS = [
-    { icon: "tdesign:assignment-user", name: "visit the human", url: website },
+    {
+        icon: "tdesign:assignment-user",
+        name: "visit the human",
+        url: data.website,
+    },
     {
         icon: "tdesign:folder-search",
         name: "follow the research",
-        url: research,
+        url: data.research,
     },
 ];
 ---
@@ -29,10 +35,10 @@ const SOCIALS = [
     class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-4"
 >
     <div class="shrink-0 w-64 h-64 bg-figred rounded-full mb-2">
-        <Image class="w-full h-auto" src={picture} alt={name} />
+        <Image class="w-full h-auto" src={data.picture} alt={data.name} />
     </div>
     <div class="shrink">
-        <h3 class="font-bold text-3xl mb-1.5">{name}</h3>
+        <h3 class="font-bold text-3xl mb-1.5">{data.name}</h3>
         <div class="text-sm mb-4">
             <Content />
         </div>

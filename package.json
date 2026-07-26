@@ -12,12 +12,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/svelte": "^9.0.1",
     "astro": "^7.1.1",
-    "astro-icon": "^1.1.5",
+    "svelte": "^5.56.8",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@iconify-json/tdesign": "^1.2.17",
-    "@tailwindcss/vite": "^4.3.3"
+    "@iconify/svelte": "^5.2.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro-icon": "^1.1.5",
+    "typescript": "^6.0.3"
   }
 }
