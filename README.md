@@ -4,8 +4,6 @@
 
 ```text
 /
-├── public/
-│   └── favicon.svg
 ├── src
 │   ├── assets
 │   │   ├── collections
@@ -15,12 +13,16 @@
 │   │   ├── pages
 │   │   │   └── index.json          # landing page content (intro, research, humans)
 │   │   └── site/                   # configuration, images, styles
+│   │
 │   ├── atoms/                      # small reusable UI building blocks
-│   │   └── Blocks: Card, Container, Divider
-│   │   └── Typography: Headline, Leading
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
+│   │   └── [blocks]                # card, container, divider elements
+│   │   └── [typography]            # headline, leading elements
+│   │
+│   ├── components/                 # publication and human renderer
+│   ├── layouts/                    # core layout component
+│   │   └── partials/               # navbar, footer, hero (index)
+│   ├── pages/                      # index
+│   │
 │   ├── content.config.ts           # schemas for the data collections
 │   └── styles.global.css
 └── package.json
@@ -34,7 +36,7 @@
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro ...`       | Run CLI commands like `astro check`              |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 ## Contributing
