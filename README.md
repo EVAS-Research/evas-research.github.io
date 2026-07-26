@@ -3,41 +3,38 @@
 ## Project Structure
 
 ```text
-/
-├── src
-│   ├── assets
-│   │   ├── collections
-│   │   │   ├── research/           # [authors].[year].[slug].md
-│   │   │   └── humans/             # [firstname]_[lastname].md
-│   │   │       └── pictures/       # portraits referenced by humans/*.md
-│   │   ├── pages
-│   │   │   └── index.json          # landing page content (intro, research, humans)
-│   │   └── site/                   # configuration, images, styles
-│   │
-│   ├── atoms/                      # small reusable UI building blocks
-│   │   └── [blocks]                # card, container, divider elements
-│   │   └── [typography]            # headline, leading elements
-│   │
-│   ├── components/                 # publication and human renderer
-│   ├── layouts/                    # core layout component
-│   │   └── partials/               # navbar, footer, hero (index)
-│   ├── pages/                      # index
-│   │
-│   ├── content.config.ts           # schemas for the data collections
-│   └── styles.global.css
-└── package.json
+./src
+├── assets
+│   ├── collections
+│   │   ├── research/           # [authors].[year].[slug].md
+│   │   └── humans/             # [firstname]_[lastname].md
+│   │       └── pictures/       # portraits referenced by humans/*.md
+│   ├── pages
+│   │   └── index.json          # landing page content (intro, research, humans)
+│   └── site/                   # configuration, images, styles
+│
+├── atoms/                      # small reusable UI building blocks
+│   └── [...blocks]             # card, container, divider elements
+│   └── [...typography]         # headline, leading elements
+│
+├── components/                 # publication, humans renderer
+├── layouts/                    # core layout components
+│   └── partials/               # navbar, footer, index:hero
+├── pages/                      # index (landing page)
+│
+└── content.config.ts           # schemas for the assets/collections data
 ```
 
 ## Commands
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro check`              |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                   | Action                                       |
+| :------------------------ | :------------------------------------------- |
+| `npm install`             | Installs dependencies                        |
+| `npm run dev`             | Starts local dev server at `localhost:4321`  |
+| `npm run build`           | Build your production site to `./dist/`      |
+| `npm run preview`         | Preview your build locally, before deploying |
+| `npm run astro ...`       | Run CLI commands like `astro check`          |
+| `npm run astro -- --help` | Get help using the Astro CLI                 |
 
 ## Contributing
 
@@ -63,7 +60,7 @@ Create a new file at `src/assets/collections/humans/[firstname]_[lastname].md`:
 
 ```markdown
 ---
-name: "First Lastname"
+name: "Firstname Lastname"
 picture: "pictures/your_picture.webp"
 website: "https://your-personal-site.example.com"
 research: "https://{scholar.google, orcid, dldp}.com"
