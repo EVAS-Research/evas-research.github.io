@@ -1,4 +1,6 @@
 <script lang="ts">
+    import _ from "lodash";
+
     import Icon from "@iconify/svelte";
 
     import ResearchItem, {
@@ -33,15 +35,6 @@
                         .includes(search),
                 );
         });
-    }
-
-    function scroll_to(event: any) {
-        // event.target.scrollIntoView({
-        //     alignToTop: false,
-        //     behavior: "smooth",
-        //     container: "nearest",
-        //     inline: "start",
-        // });
     }
 </script>
 
@@ -81,7 +74,7 @@
 <div
     class="relative overflow-y-scroll lg:overflow-y-hide lg:overflow-x-scroll scrollbar-none w-auto flex flex-row gap-8 px-4 py-8 lg:px-8 lg:flex-col lg:h-100vh border-t-4 border-b-4 lg:border-t-0 lg:border-b-0 lg:border-l-4 lg:border-r-4 lg:max-h-[60vh] border-figred lg:mx-16 border-dashed bg-white"
 >
-    {#each filteredItems as item, index}
+    {#each _.shuffle(filteredItems) as item, index}
         <div class="shrink-0 w-11/12 lg:w-full">
             <ResearchItem data={item.data} body={item.body} />
         </div>
@@ -94,30 +87,26 @@
                     <Icon
                         icon="tdesign:chevron-down"
                         class="hidden lg:block -translate-y-6 -translate-x-6"
-                        onclick={scroll_to}
                     />
                     <Icon
                         icon="tdesign:chevron-down"
                         class="hidden lg:block -translate-y-6 translate-x-6"
-                        onclick={scroll_to}
                     />
                     <Icon
                         icon="tdesign:chevron-right"
                         class="lg:hidden left-0 -translate-y-4 -translate-x-1/2"
-                        onclick={scroll_to}
                     />
                     <Icon
                         icon="tdesign:chevron-right"
                         class="lg:hidden translate-y-4 -translate-x-1/2"
-                        onclick={scroll_to}
                     />
                 </div>
             </div>
         {/if}
     {/each}
-    {#if filteredItems.length === 0 }
-            <span class="italic font-bold tracking-wide">
-                no matching research found 
-            </span>
+    {#if filteredItems.length === 0}
+        <span class="italic font-bold tracking-wide">
+            no matching research found
+        </span>
     {/if}
 </div>

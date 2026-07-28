@@ -1,5 +1,6 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
+    import { marked } from "marked";
 
     export interface Props {
         data: {
@@ -36,7 +37,7 @@
             </a>
         </footer>
         <section class="text-sm text-pretty leading-6">
-            {body}
+            {@html marked.parse(body)}
         </section>
     </div>
 </article>

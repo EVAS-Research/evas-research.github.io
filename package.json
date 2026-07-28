@@ -14,6 +14,8 @@
   "dependencies": {
     "@astrojs/svelte": "^9.0.1",
     "astro": "^7.1.1",
+    "lodash": "^4.18.1",
+    "marked": "^18.0.7",
     "svelte": "^5.56.8",
     "tailwindcss": "^4.3.3"
   },
@@ -21,6 +23,7 @@
     "@iconify-json/tdesign": "^1.2.17",
     "@iconify/svelte": "^5.2.2",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/lodash": "^4.17.24",
     "astro-icon": "^1.1.5",
     "typescript": "^6.0.3"
   }

@@ -12,7 +12,7 @@ import Headline from "@atoms/Headline.astro";
 import Leading from "@atoms/Leading.astro";
 
 import Research from "@components/Research.svelte";
-import Humans from "@components/Humans.astro";
+import Humans from "@components/Humans.svelte";
 
 import { intro, research, humans } from "@assets/pages/index.json";
 
@@ -32,7 +32,10 @@ const RESEARCH_COLLECTION = await getCollection("research");
                 {
                     intro.aims.map((aim) => (
                         <Card icon={aim.icon} title={aim.title}>
-                            <p class="leading-6 text-pretty" set:html={aim.description} />
+                            <p
+                                class="leading-6 text-pretty"
+                                set:html={aim.description}
+                            />
                         </Card>
                     ))
                 }
@@ -51,6 +54,6 @@ const RESEARCH_COLLECTION = await getCollection("research");
     <Container>
         <Headline icon={humans.icon} set:html={humans.headline} />
         <Leading set:html={humans.leading} />
-        <Humans items={HUMANS_COLLECTION as Array<any>} />
+        <Humans items={HUMANS_COLLECTION as Array<any>} client:load />
     </Container>
 </Layout>
