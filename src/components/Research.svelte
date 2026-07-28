@@ -16,10 +16,10 @@
     let { items }: Props = $props();
 
     let searchPhrase = $state("");
-    let filteredItems = $derived(items);
+    let filteredItems = $state(Array());
 
     onMount(() => {
-        filteredItems = _.shuffle(filteredItems);
+        filteredItems = _.shuffle(items);
     });
 
     function search() {
@@ -82,7 +82,11 @@
 >
     {#each filteredItems as item, index}
         <div class="shrink-0 w-11/12 lg:w-full">
-            <ResearchItem data={item.data} body={item.body} />
+            <ResearchItem
+                data={item.data}
+                body={item.body}
+                highlightItems={searchPhrase.trim().split(" ")}
+            />
         </div>
 
         {#if index !== filteredItems.length - 1}

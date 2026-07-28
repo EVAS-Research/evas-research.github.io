@@ -11,9 +11,23 @@
             url: string;
         };
         body: string;
+        highlightItems?: Array<string>;
     }
 
-    let { data, body }: Props = $props();
+    let { data, body, highlightItems = [] }: Props = $props();
+    let highlightedBody = $derived.by(() => {
+        let _highlightedBody = body;
+
+        highlightItems.forEach((element) => {
+            if (element.length < 3) return;
+
+            _highlightedBody = _highlightedBody.replaceAll(
+                element,
+                `**${element}**`,
+            );
+        });
+        return _highlightedBody;
+    });
 </script>
 
 <article class="mx-auto lg:w-10/12">
@@ -37,7 +51,7 @@
             </a>
         </footer>
         <section class="text-sm text-pretty leading-6">
-            {@html marked.parse(body)}
+            {@html marked.parse(highlightedBody)}
         </section>
     </div>
 </article>
