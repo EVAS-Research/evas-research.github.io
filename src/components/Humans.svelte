@@ -13,7 +13,7 @@
 </script>
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-    {#each _.shuffle(items) as item, _}
+    {#each items as item, index}
         <HumansItem data={item.data} body={item.body} />
     {/each}
 </div>

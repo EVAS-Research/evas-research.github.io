@@ -74,7 +74,7 @@
 <div
     class="relative overflow-y-scroll lg:overflow-y-hide lg:overflow-x-scroll scrollbar-none w-auto flex flex-row gap-8 px-4 py-8 lg:px-8 lg:flex-col lg:h-100vh border-t-4 border-b-4 lg:border-t-0 lg:border-b-0 lg:border-l-4 lg:border-r-4 lg:max-h-[60vh] border-figred lg:mx-16 border-dashed bg-white"
 >
-    {#each _.shuffle(filteredItems) as item, index}
+    {#each filteredItems as item, index}
         <div class="shrink-0 w-11/12 lg:w-full">
             <ResearchItem data={item.data} body={item.body} />
         </div>
