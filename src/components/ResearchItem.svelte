@@ -1,6 +1,7 @@
 <script lang="ts">
-    import Icon from "@iconify/svelte";
     import { marked } from "marked";
+
+    import Icon from "@iconify/svelte";
 
     export interface Props {
         data: {
@@ -15,18 +16,18 @@
     }
 
     let { data, body, highlightItems = [] }: Props = $props();
-    let highlightedBody = $derived.by(() => {
-        let _highlightedBody = body;
+    let bodyHighlighted = $derived.by(() => {
+        let _bodyHighlighted = body;
 
         highlightItems.forEach((element) => {
             if (element.length < 3) return;
 
-            _highlightedBody = _highlightedBody.replaceAll(
+            _bodyHighlighted = _bodyHighlighted.replaceAll(
                 element,
                 `**${element}**`,
             );
         });
-        return _highlightedBody;
+        return _bodyHighlighted;
     });
 </script>
 
@@ -51,7 +52,7 @@
             </a>
         </footer>
         <section class="text-sm text-pretty leading-6">
-            {@html marked.parse(highlightedBody)}
+            {@html marked.parse(bodyHighlighted)}
         </section>
     </div>
 </article>

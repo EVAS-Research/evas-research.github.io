@@ -1,6 +1,7 @@
 <script lang="ts">
-    import Icon from "@iconify/svelte";
     import { marked } from "marked";
+
+    import Icon from "@iconify/svelte";
 
     export interface Props {
         data: {
@@ -27,7 +28,7 @@
 </script>
 
 <article
-    class="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-10 bg-white p-8 xl:pt-14 border-b-4 border-figred"
+    class="relative flex flex-col items-center justify-center gap-12 bg-white p-8 xl:pt-14 border-b-4 border-figred lg:max-w-sm"
 >
     <div class="shrink-0 w-64 h-64">
         <img class="w-full h-auto" src={data.picture.src} alt={data.name} />
