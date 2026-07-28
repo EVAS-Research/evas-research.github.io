@@ -1,6 +1,8 @@
 <script lang="ts">
     import _ from "lodash";
 
+    import { onMount } from "svelte";
+
     import Icon from "@iconify/svelte";
 
     import ResearchItem, {
@@ -15,6 +17,10 @@
 
     let searchPhrase = $state("");
     let filteredItems = $derived(items);
+
+    onMount(() => {
+        filteredItems = _.shuffle(filteredItems);
+    });
 
     function search() {
         filteredItems = items.filter((item) => {
