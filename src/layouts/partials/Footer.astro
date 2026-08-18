@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 import { Icon } from "astro-icon/components";
@@ -7,6 +8,10 @@ import Container from "@atoms/Container.astro";
 
 import CFG from "@assets/site/config.json";
 import LOGO from "@assets/site/images/logo.mono.white.svg";
+
+const backerImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/site/images/backer/*.svg",
+);
 ---
 
 <footer>
@@ -31,6 +36,32 @@ import LOGO from "@assets/site/images/logo.mono.white.svg";
                 ))
             }
         </div>
+        <div class="h-4"></div>
+        <div class="flex justify-center">
+            <span class="text-eggwhite italic">
+                EVAS is supported by the following universities/labs:
+            </span>
+        </div>
+        <div class="flex flex-row justify-center items-center gap-14">
+            {
+                CFG.footer.backer_menu.map((item) => (
+                    <a
+                        class="content-center max-w-52"
+                        href={item.url}
+                        target="_blank"
+                    >
+                        <Image
+                            src={backerImages[item.logo]()}
+                            alt={item.name}
+                            class="h-24 pb-4"
+                            inferSize={true}
+                        />
+                        <span class="text-white text-sm">{item.name}</span>
+                    </a>
+                ))
+            }
+        </div>
+        <div class="h-4"></div>
         <div
             class="flex gap-1.5 justify-center text-xs tracking-wide font-light italic text-white"
         >

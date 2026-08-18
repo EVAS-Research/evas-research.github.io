@@ -33,6 +33,18 @@
         "url": "https://github.com/EVAS-Research"
       }
     ],
+    "backer_menu": [
+      {
+        "name": "Achim Rettinger, chair of Computational Linguistics department and krAil research",
+        "logo": "/src/assets/site/images/backer/logo.uni-trier.svg",
+        "url": "https://www.uni-trier.de/index.php?id=1138"
+      },
+      {
+        "name": "Christoph Purschke, head of the Computational Linguistics Culture & Computation Lab",
+        "logo": "/src/assets/site/images/backer/logo.uni-lux.svg",
+        "url": "https://cucolab.uni.lu"
+      }
+    ],
     "source_url": "https://github.com/EVAS-Research/evas-research.github.io"
   }
 }
