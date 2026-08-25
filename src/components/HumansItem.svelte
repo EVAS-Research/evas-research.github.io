@@ -28,32 +28,32 @@
 </script>
 
 <article
-    class="relative flex flex-col items-center justify-center gap-12 bg-white p-8 xl:pt-14 border-b-4 border-figred lg:max-w-sm"
+    class="relative flex flex-col gap-6 bg-white p-8 border-b-4 border-figred w-auto lg:max-w-md"
 >
-    <div class="shrink-0 w-64 h-64">
+    <header class="w-64 h-64">
         <img class="w-full h-auto" src={data.picture.src} alt={data.name} />
-    </div>
-    <div class="shrink">
-        <h3 class="font-bold text-3xl mb-1.5">{data.name}</h3>
+    </header>
+    <section>
+        <h3 class="font-bold text-2xl mb-1.5">{data.name}</h3>
         <div class="text-sm mb-4 text-pretty leading-6">
             {@html marked.parse(body)}
         </div>
-        <div class="flex gap-2">
-            {#each [data.website, data.research] as url, index}
-                <a
-                    class="text-figred flex content-center"
-                    href={url}
-                    target="_blank"
+    </section>
+    <footer class="flex gap-2">
+        {#each [data.website, data.research] as url, index}
+            <a
+                class="text-figred flex content-center text-sm"
+                href={url}
+                target="_blank"
+            >
+                <Icon
+                    class="inline mr-2 text-2xl"
+                    icon={socialsMap[index].icon}
+                />
+                <span class="underline self-center"
+                    >{socialsMap[index].name}</span
                 >
-                    <Icon
-                        class="inline mr-2 text-2xl"
-                        icon={socialsMap[index].icon}
-                    />
-                    <span class="underline self-center"
-                        >{socialsMap[index].name}</span
-                    >
-                </a>
-            {/each}
-        </div>
-    </div>
+            </a>
+        {/each}
+    </footer>
 </article>
